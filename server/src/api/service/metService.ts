@@ -9,10 +9,41 @@ export class MetService {
     return this.getArtObject(oid);
   };
 
+  //   public getArtistArt = async (): Promise<Art[]> => {};
+
+  public getKeywordArt = async (keyword: string): Promise<Art[]> => {
+    const url = config.art.met.host + config.art.met.path.public + `/search`;
+    console.log(url);
+    const response: AxiosResponse = await axios
+      .get(url, { params: { q: keyword, isHighlight: "TRUE" } })
+      .catch((error) => {
+        console.log(error);
+        return {
+          data: { objectID: -1, note: error.response.data.message },
+          status: error.response.status,
+          statusText: error.response.statusText,
+          headers: error.response.headers,
+          config: error.response.config,
+        };
+      });
+    if (response.data == null) {
+      return Promise.resolve([{ objectID: -1, note: "No data" }]);
+    }
+    console.log(`${response.data.total} art objects found`);
+    return response.data.objectIDs
+      .map(async (oid: number) => await this.getArtObject(oid))
+      .filter(async (art: Art) => {
+        const resart = await art;
+        console.log(resart.artistDisplayName);
+        return resart.artistDisplayName
+          ?.toLowerCase()
+          .includes(keyword.toLowerCase());
+      });
+  };
+
   private getArtObject = async (oid: number): Promise<Art> => {
     const url =
       config.art.met.host + config.art.met.path.public + `/objects/${oid}`;
-    console.log(url);
     const response: AxiosResponse<Art> = await axios.get(url).catch((error) => {
       console.log(error);
       return {
