@@ -1,9 +1,45 @@
 import axios, { AxiosResponse } from "axios";
+import { response } from "express";
 import config from "../../config/config";
 import { Art } from "../../types/art";
 import { BaseArtService } from "./baseArtService";
 
 export class ArtsyService extends BaseArtService {
+  token: string;
+  constructor() {
+    super();
+    let cur_token = "";
+    this.authenticate().then((resolve: string) => {
+      cur_token = resolve;
+      cur_token == ""
+        ? console.log("Unable to authenticate")
+        : console.log("Authenticated with Artsy");
+    });
+    this.token = cur_token;
+  }
+
+  private authenticate = async (): Promise<string> => {
+    const url = "https://api.artsy.net/api/tokens/xapp_token";
+    console.log(config.art.artsy.api);
+    const response: AxiosResponse = await axios
+      .post(url, {
+        params: {
+          client_id: config.art.artsy.api.id,
+          client_secret: config.art.artsy.api.secret,
+        },
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+        return {
+          data: { token: "" },
+          status: error.response.status,
+          statusText: error.response.statusText,
+          headers: error.response.headers,
+          config: error.response.config,
+        };
+      });
+    return response.data.token;
+  };
   public getRandomArt = async (): Promise<Art> => {
     const oid = Math.floor(Math.random() * 100) + 1;
     console.log(oid);
