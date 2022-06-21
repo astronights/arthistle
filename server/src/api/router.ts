@@ -1,11 +1,11 @@
 import express from "express";
-import { MetController } from "./controller/metController";
+import { ArtController } from "./controller/artController";
 
 const router = express.Router();
 
-const metController = new MetController();
+const artController = new ArtController();
 
-router.use("/met", metController.router);
+router.use("/met", artController.router);
 
 router.get("/", (req, res) => {
   res.status(200).json("Connected!");

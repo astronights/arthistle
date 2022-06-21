@@ -3,7 +3,7 @@ import config from "../../config/config";
 import { Art } from "../../types/art";
 import { BaseArtService } from "./baseArtService";
 
-export class MetService extends BaseArtService {
+export class ArtsyService extends BaseArtService {
   public getRandomArt = async (): Promise<Art> => {
     const oid = Math.floor(Math.random() * 100) + 1;
     console.log(oid);
