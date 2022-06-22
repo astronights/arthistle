@@ -36,9 +36,7 @@ export class WikiArtService extends BaseArtService {
       console.log(error);
       return Promise.reject("WikiArt Error");
     });
-    let art = _.sampleSize(response.data, 5).map((work) => {
-      console.log(work);
-
+    let art = _.sampleSize(response.data.data, 5).map((work) => {
       return <art>{
         _id: work.id,
         name: work.title,
@@ -46,14 +44,14 @@ export class WikiArtService extends BaseArtService {
         url: work.image,
       };
     });
-    return Promise.resolve(
-      new Artist({
-        _id: artist_id,
-        name: this.top_artists[artist_id].name,
-        url: this.top_artists[artist_id].url,
-        date: new Date().toISOString().split("T")[0],
-        art: art,
-      })
-    );
+    console.log(this.top_artists[artist_id]);
+    let dailyArt = new Artist({
+      _id: artist_id,
+      name: this.top_artists[artist_id].artistName,
+      url: this.top_artists[artist_id].artistUrl,
+      date: new Date().toISOString().split("T")[0],
+      art: art,
+    });
+    return Promise.resolve(dailyArt.save());
   };
 }
