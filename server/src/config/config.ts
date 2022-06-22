@@ -4,9 +4,11 @@ dotenv.config();
 const config = {
   host: process.env["HOST"] || "127.0.0.1",
   port: parseInt(process.env["PORT"] || "3000"),
-
+  mongo: {
+    uri: `mongodb+srv://astronights:${process.env["MONGO_PASS"]}@cluster0.u9npa.mongodb.net/artistle?retryWrites=true&w=majority`,
+  },
   art: {
-    source: "artsy",
+    source: "wiki",
     met: {
       host: "https://collectionapi.metmuseum.org",
       path: {
@@ -17,6 +19,16 @@ const config = {
       api: {
         id: process.env["ARTSY_ID"],
         secret: process.env["ARTSY_SECRET"],
+      },
+    },
+    wiki: {
+      host: {
+        public: "https://www.wikiart.org/en/Api/2",
+        json: "https://www.wikiart.org/en/popular-paintings?json=1",
+      },
+      api: {
+        id: process.env["WIKI_ID"],
+        secret: process.env["WIKI_SECRET"],
       },
     },
   },

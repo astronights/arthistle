@@ -5,7 +5,7 @@ const router = express.Router();
 
 const artController = new ArtController();
 
-router.use("/met", artController.router);
+router.use("/artistle", artController.router);
 
 router.get("/", (req, res) => {
   res.status(200).json("Connected!");

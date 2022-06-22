@@ -1,8 +1,7 @@
 import { Request, Response, Router } from "express";
-import { MetService } from "../service/metService";
-import { ArtsyService } from "../service/artsyService";
 import { BaseArtService } from "../service/baseArtService";
 import config from "../../config/config";
+import { WikiArtService } from "../service/wikiArtService";
 
 export class ArtController {
   router = Router();
@@ -10,26 +9,17 @@ export class ArtController {
 
   constructor() {
     this.artService = this.getArtService();
-    this.router.get("/random-art", this.getRandomArt);
-    this.router.get("/artist-art/:artist", this.getArtistArt);
+    this.router.get("/art-today", this.getArtToday);
   }
 
-  public getArtistArt = async (req: Request, res: Response) => {
-    return res
-      .status(200)
-      .json(await this.artService.getKeywordArt(req.params.artist));
-  };
-
-  public getRandomArt = async (req: Request, res: Response) => {
-    return res.status(200).json(await this.artService.getRandomArt());
+  public getArtToday = async (req: Request, res: Response) => {
+    return res.status(200).json(await this.artService.getArtToday());
   };
 
   private getArtService = (): BaseArtService => {
     const serviceName = config.art.source;
-    if (serviceName == "met") {
-      return new MetService();
-    } else if (serviceName == "artsy") {
-      return new ArtsyService();
+    if (serviceName == "wiki") {
+      return new WikiArtService();
     } else {
       console.log("No artService specified in config");
       return new BaseArtService();
