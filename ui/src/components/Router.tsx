@@ -1,14 +1,14 @@
 import React from "react";
-import Home from "./Home";
+import Game from "./Game";
 import About from "./About";
 import { Routes, Route } from "react-router-dom";
 
 const Router: React.FC = () => {
   return (
     <Routes>
-      <Route path="/home" element={<Home />} />
+      <Route path="/game" element={<Game />} />
       <Route path="/about" element={<About />} />
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Game />} />
       <Route
         path="*"
         element={

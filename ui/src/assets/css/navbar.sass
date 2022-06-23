@@ -1,0 +1,43 @@
+@use "colors" as colors
+@use "media" as medium
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap')
+
+.nav-bar
+  display: flex
+  justify-content: center
+  flex-direction: row
+  color: colors.$black
+  font-family: 'Lato', sans-serif
+  margin: 0
+  height: 3em
+
+.tool-bar
+    margin: auto
+    display: flex
+    @media screen and (max-width: medium.$tablet)
+        width: 90%
+    @media screen and (min-width: medium.$tablet)
+        width: 70%
+    @media screen and (min-width: medium.$desktop)
+        width: 50%
+    justify-content: space-evenly
+
+.nav-link
+  color: colors.$white
+  text-decoration: none
+  display: flex
+  padding: 10px
+
+.nav-link-active
+    background-color: colors.$green
+    color: colors.$white
+    padding: 0.5em 0.7em 0.5em 0.7em
+    text-decoration-line: none
+    border-radius: 0.5em
+
+.app-name
+  font-weight: bold
+
+.space-div
+    display: flex
+    flex-grow: 1

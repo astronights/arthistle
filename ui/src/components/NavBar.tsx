@@ -1,24 +1,28 @@
 import { AppBar, Toolbar } from "@mui/material";
 import React from "react";
 import { NavLink } from "react-router-dom";
-// import "../assets/css/Component.scss";
+import "../assets/css/navbar.sass";
 
 const NavBar = () => {
   return (
     <AppBar className="nav-bar" position="sticky">
-      <Toolbar>
-        <NavLink className="app-name nav-link" to="/home">
-          <span className="full-text">Artistle</span>
-          <span className="short-text">Artistle</span>
+      <Toolbar className="tool-bar">
+        <NavLink className="app-name nav-link" to="/game">
+          <span className="text">ARTISTLE</span>
         </NavLink>
+        <div className="space-div"></div>
         <NavLink
-          className={(isActive) => "nav-link" + (!isActive ? "" : "active")}
-          to="/home"
+          className={(isActive) =>
+            "nav-link" + (!isActive.isActive ? "" : "-active")
+          }
+          to="/game"
         >
           Home
         </NavLink>
         <NavLink
-          className={(isActive) => "nav-link" + (!isActive ? "" : "active")}
+          className={(isActive) =>
+            "nav-link" + (!isActive.isActive ? "" : "-active")
+          }
           to="/about"
         >
           About

@@ -1,12 +1,21 @@
 import React from "react";
-import "../assets/css/App.sass";
+import "../assets/css/app.sass";
 import Layer from "./Layer";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 const App = () => {
+  const darkTheme = createTheme({
+    palette: {
+      mode: "dark",
+    },
+  });
+
   return (
-    <div className="app">
-      <Layer />
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <div className="app">
+        <Layer />
+      </div>
+    </ThemeProvider>
   );
 };
 

@@ -1,0 +1,21 @@
+{
+  "name": "arthistle",
+  "version": "1.0.0",
+  "description": "An Art History guessing game (Wordle spin-off)",
+  "main": "index.js",
+  "scripts": {
+    "ui": "cd ui && npm start",
+    "server": "cd server && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run ui\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/astronights/arthistle.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/astronights/arthistle/issues"
+  },
+  "homepage": "https://github.com/astronights/arthistle#readme"
+}
