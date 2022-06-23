@@ -5,7 +5,7 @@ import { artist } from "../types/artist";
 export const getDailyArt = async (): Promise<artist> => {
   const response: AxiosResponse = await request(
     "GET",
-    "/artistle/art-today",
+    "/arthistle/art-today",
     null,
     null
   );

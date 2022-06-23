@@ -8,7 +8,7 @@ const NavBar = () => {
     <AppBar className="nav-bar" position="sticky">
       <Toolbar className="tool-bar">
         <NavLink className="app-name nav-link" to="/game">
-          <span className="text">ARTISTLE</span>
+          <span className="text">ARTHISTLE</span>
         </NavLink>
         <div className="space-div"></div>
         <NavLink
