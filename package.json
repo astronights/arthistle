@@ -4,8 +4,8 @@
   "description": "An Art History guessing game (Wordle spin-off)",
   "main": "index.js",
   "scripts": {
-    "ui": "cd ui && npm start",
-    "server": "cd server && npm start",
+    "build": "cd ui/ && npm install && npm run build",
+    "start": "cd server/ && npm install && npm start",
     "dev": "concurrently \"npm run server\" \"npm run ui\""
   },
   "repository": {
