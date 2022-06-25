@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const config = {
-  host: process.env["HOST"] || "127.0.0.1",
+  host: process.env["HOST"] || "0.0.0.0",
   port: parseInt(process.env["PORT"] || "4242"),
   mongo: {
     uri: `mongodb+srv://astronights:${process.env["MONGO_PASS"]}@cluster0.u9npa.mongodb.net/arthistle?retryWrites=true&w=majority`,
