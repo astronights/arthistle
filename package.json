@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/astronights/arthistle/issues"
   },
-  "homepage": "https://github.com/astronights/arthistle#readme"
+  "homepage": "https://github.com/astronights/arthistle#readme",
+  "dependencies": {
+    "typescript": "^4.7.4"
+  }
 }
