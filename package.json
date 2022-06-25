@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "cd ui/ && npm install && npm run build",
-    "start": "cd server/ && npm install && npm start",
-    "dev": "concurrently \"npm run server\" \"npm run ui\""
+    "start": "cd server/ && npm install && npm start"
   },
   "repository": {
     "type": "git",

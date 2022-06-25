@@ -1,5 +1,4 @@
-import React from "react";
-import "../assets/css/app.sass";
+import "../assets/css/App.sass";
 import Layer from "./Layer";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
