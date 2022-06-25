@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/astronights/arthistle#readme",
   "dependencies": {
+    "fs": "^0.0.1-security",
     "typescript": "^4.7.4"
   }
 }
