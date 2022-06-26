@@ -1,4 +1,6 @@
+import pack from "../../package.json";
+
 const config = {
-  server: `http://0.0.0.0:${process.env["PORT"] || "4242"}`,
+  server: pack.proxy,
 };
 export default config;
