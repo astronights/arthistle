@@ -1,4 +1,5 @@
 @use "colors" as colors
+@use "media" as medium
 .game
     display: flex
     flex-direction: column
@@ -20,7 +21,24 @@
     background-color: 'yellow'
     margin: 0.5em
 
+.art-input
+    display: flex
+    justify-content: center
+    background-color: 'yellow'
+    @media screen and (max-width: medium.$tablet)
+        margin: 0.5em 15% 0.5em 15%
+    @media screen and (min-width: medium.$tablet)
+        margin: 0.5em 25% 0.5em 25%
+    @media screen and (min-width: medium.$desktop)
+        margin: 0.5em 23% 0.5em 23%
+    
+
 img
     display: flex
     width: inherit
     height: inherit
+
+.input-form
+    display: flex
+    flex-direction: row
+    justify-content: space-evenly
