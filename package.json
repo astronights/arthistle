@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "An Art History guessing game (Wordle spin-off)",
   "scripts": {
-    "start": "cd server/ && npm install && npm start && serve -s ../ui/build",
+    "start": "cd server/ && npm install && serve -s ../ui/build && npm start",
     "build": "cd ui/ && npm install && npm run build"
   },
   "repository": {
