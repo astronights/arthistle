@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "An Art History guessing game (Wordle spin-off)",
   "scripts": {
-    "build": "cd ui/ && npm install && npm run build",
     "start": "cd server/ && npm install && npm start",
     "heroku-postbuild": "cd ui/ && npm install && npm run build"
   },
