@@ -1,6 +1,7 @@
 import cors from "cors";
 import express from "express";
 import router from "./api/router";
+import path from "path";
 
 const app = express();
 
@@ -11,5 +12,6 @@ app.use(cors({ origin: "*" }));
 
 // Apply routes before error handling
 app.use("/", router);
+app.use(express.static(path.resolve(__dirname, "../ui/build")));
 
 export default app;
