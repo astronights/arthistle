@@ -7,7 +7,7 @@ const artController = new ArtController();
 
 router.use("/arthistle", artController.router);
 
-router.get("/", (req, res) => {
+router.get("/status", (req, res) => {
   res.status(200).json("Connected!");
 });
 

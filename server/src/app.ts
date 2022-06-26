@@ -9,9 +9,12 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({ origin: "*" }));
-
-// Apply routes before error handling
-// app.use(express.static(path.resolve(__dirname, "../ui/build")));
 app.use("/", router);
+
+app.use(express.static(path.resolve(__dirname, "../ui/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/../frontend/build/index.html"));
+});
 
 export default app;
