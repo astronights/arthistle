@@ -1,4 +1,4 @@
 const config = {
-  server: `http://0.0.0.0:${process.env["PORT"] || "4242"}`,
+  server: `http://localhost:${process.env["PORT"] || "4242"}`,
 };
 export default config;

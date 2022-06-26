@@ -13,8 +13,8 @@ app.use("/", router);
 
 app.use(express.static(path.resolve(__dirname, "../ui/build")));
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname + "../ui/build/index.html"));
-// });
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname + "../../ui/build/index.html"));
+});
 
 export default app;
