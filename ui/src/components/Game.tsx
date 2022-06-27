@@ -5,7 +5,6 @@ import Step from "@mui/material/Step";
 import StepButton from "@mui/material/StepButton";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import CheckIcon from "@mui/icons-material/Check";
 import Skeleton from "@mui/material/Skeleton";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
@@ -13,7 +12,7 @@ import "../assets/css/game.sass";
 import { getDailyArt } from "../api/art";
 import { useEffect } from "react";
 import { artist } from "../types/artist";
-import { fuzzyMatch, isAnswer, severities } from "../utils/util";
+import { regex, fuzzyMatch, isAnswer, severities } from "../utils/util";
 
 const daily_artist: artist = {
   _id: "",
@@ -28,23 +27,27 @@ const daily_artist: artist = {
   ],
 };
 
+const nameset: string[] = [""];
+
+const completed: boolean[] = [false, false, false, false, false];
+
 const Game = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [artist, setArtist] = useState(daily_artist);
+  const [names, setNames] = useState(nameset);
   const [gameValue, setGameValue] = useState("");
   const [guesses, setGuesses] = useState<{ attempts: string[] }>({
     attempts: [],
   });
-  const [completed, setCompleted] = useState<{ [k: number]: boolean }>({});
 
   const handleStep = (step: number) => () => {
-    if (completed[step] === true) {
+    console.log(completed);
+    if (step === 0 || completed[step - 1] === true) {
       setActiveStep(step);
     }
   };
 
   const validateArtist = async (attempt: string) => {
-    console.log(`Checking artist... ${attempt}`);
     setGuesses({
       attempts: [...guesses.attempts, attempt],
     });
@@ -52,7 +55,12 @@ const Game = () => {
       attempt.toLowerCase(),
       artist.name.toLowerCase()
     );
-    console.log(results);
+    if (results.length === 0) {
+      completed[activeStep] = true;
+      setActiveStep(activeStep + 1);
+    } else {
+      setNames(names.filter((name) => !results.includes(name.toLowerCase())));
+    }
   };
 
   useEffect(() => {
@@ -63,9 +71,7 @@ const Game = () => {
       .catch((err) => {
         console.log(err);
       });
-    setCompleted(
-      Object.fromEntries(Object.keys(completed).map((key) => [key, false]))
-    );
+    setNames(artist.name.split(regex));
   }, []);
 
   return (
@@ -95,6 +101,25 @@ const Game = () => {
           </Stepper>
         </Box>
       </div>
+      <div className="art-name">
+        <Box>
+          {artist.name.split(/([^a-z])/i).map((word: string) => {
+            if (names.includes(word)) {
+              return (
+                <span key={word} className="name-mask">
+                  {word}
+                </span>
+              );
+            } else {
+              return (
+                <span key={word} className="name-plain">
+                  {word}
+                </span>
+              );
+            }
+          })}
+        </Box>
+      </div>
       <div className="art-input">
         <form
           className="input-form"
@@ -121,34 +146,16 @@ const Game = () => {
         </form>
       </div>
       <div className="art-guess">
-        <Stack sx={{ width: "50%" }} spacing={1}>
+        <Stack sx={{ width: "inherit" }} spacing={1}>
           {guesses.attempts.map((attempt) => {
             const match = isAnswer(attempt, artist.name);
-            console.log(match);
             return (
-              <Alert
-                icon={<CheckIcon fontSize="inherit" />}
-                severity={severities[match]}
-              >
+              <Alert key={attempt} severity={severities[match]}>
                 {attempt}
               </Alert>
             );
           })}
         </Stack>
-        {/* <List dense={false}>
-          {guesses.attempts.map((attempt) => (
-            <ListItem className="list-item" alignItems="flex-start">
-              <ListItemIcon className="list-icon">
-                {isAnswer(attempt, artist.name) ? (
-                  <CheckIcon fontSize="medium" />
-                ) : (
-                  <ClearIcon fontSize="medium" />
-                )}
-              </ListItemIcon>
-              <ListItemText primary={attempt} />
-            </ListItem>
-          ))}
-        </List> */}
       </div>
     </div>
   );
