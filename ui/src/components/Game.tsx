@@ -5,12 +5,7 @@ import Step from "@mui/material/Step";
 import StepButton from "@mui/material/StepButton";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
 import CheckIcon from "@mui/icons-material/Check";
-import ClearIcon from "@mui/icons-material/Clear";
 import Skeleton from "@mui/material/Skeleton";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
@@ -18,7 +13,7 @@ import "../assets/css/game.sass";
 import { getDailyArt } from "../api/art";
 import { useEffect } from "react";
 import { artist } from "../types/artist";
-import { fuzzyMatch, isAnswer } from "../utils/util";
+import { fuzzyMatch, isAnswer, severities } from "../utils/util";
 
 const daily_artist: artist = {
   _id: "",
@@ -127,11 +122,18 @@ const Game = () => {
       </div>
       <div className="art-guess">
         <Stack sx={{ width: "50%" }} spacing={1}>
-          {guesses.attempts.map((attempt) => (
-            <Alert icon={<CheckIcon fontSize="inherit" />} severity="success">
-              {attempt}
-            </Alert>
-          ))}
+          {guesses.attempts.map((attempt) => {
+            const match = isAnswer(attempt, artist.name);
+            console.log(match);
+            return (
+              <Alert
+                icon={<CheckIcon fontSize="inherit" />}
+                severity={severities[match]}
+              >
+                {attempt}
+              </Alert>
+            );
+          })}
         </Stack>
         {/* <List dense={false}>
           {guesses.attempts.map((attempt) => (
