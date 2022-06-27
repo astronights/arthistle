@@ -10,8 +10,10 @@
 .art-image
     justify-content: center
     display: flex
-    height: 20em
-    width: fit-content
+    // height: 20em
+    // width: fit-content
+    width: 20em
+    height: fit-content
     margin: 0.5em auto 0.5em auto
     border: 0.2em solid grey
 
@@ -24,7 +26,6 @@
 .art-input
     display: flex
     justify-content: center
-    background-color: 'yellow'
     @media screen and (max-width: medium.$tablet)
         margin: 0.5em 15% 0.5em 15%
     @media screen and (min-width: medium.$tablet)
@@ -42,3 +43,26 @@ img
     display: flex
     flex-direction: row
     justify-content: space-evenly
+
+.art-guess
+    display: flex
+    justify-content: center
+    color: colors.$white
+
+.list-item
+    display: flex
+    flex-direction: row
+    justify-content: space-evenly
+    border: 0.12em  solid colors.$white
+    padding-top: 0.1em
+    padding-bottom: 0.1em
+    margin: 0.2em 0 0.2em 0
+    width: inherit
+
+.list-icon
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    padding: 0
+    align-items: center
+    margin-top: 0px

@@ -9,6 +9,5 @@ export const getDailyArt = async (): Promise<artist> => {
     null,
     null
   );
-  console.log(response);
   return response.data;
 };

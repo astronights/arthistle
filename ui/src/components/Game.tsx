@@ -5,18 +5,32 @@ import Step from "@mui/material/Step";
 import StepButton from "@mui/material/StepButton";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import CheckIcon from "@mui/icons-material/Check";
+import ClearIcon from "@mui/icons-material/Clear";
+import Skeleton from "@mui/material/Skeleton";
+import Alert from "@mui/material/Alert";
+import Stack from "@mui/material/Stack";
 import "../assets/css/game.sass";
 import { getDailyArt } from "../api/art";
 import { useEffect } from "react";
 import { artist } from "../types/artist";
-import { fuzzyMatch } from "../utils/util";
+import { fuzzyMatch, isAnswer } from "../utils/util";
 
 const daily_artist: artist = {
   _id: "",
-  name: "",
+  name: "Artist Loading...",
   url: "",
   date: "",
-  art: [{ _id: "", url: "" }],
+  art: [
+    {
+      _id: "",
+      url: "",
+    },
+  ],
 };
 
 const Game = () => {
@@ -34,17 +48,26 @@ const Game = () => {
     }
   };
 
-  const validateArtist = (attempt: string) => {
+  const validateArtist = async (attempt: string) => {
     console.log(`Checking artist... ${attempt}`);
-    guesses.attempts.push(attempt);
-    let results = fuzzyMatch(attempt.toLowerCase(), artist.name.toLowerCase());
+    setGuesses({
+      attempts: [...guesses.attempts, attempt],
+    });
+    let results = await fuzzyMatch(
+      attempt.toLowerCase(),
+      artist.name.toLowerCase()
+    );
     console.log(results);
   };
 
   useEffect(() => {
-    getDailyArt().then((data: artist) => {
-      setArtist(data);
-    });
+    getDailyArt()
+      .then((data: artist) => {
+        setArtist(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     setCompleted(
       Object.fromEntries(Object.keys(completed).map((key) => [key, false]))
     );
@@ -53,10 +76,18 @@ const Game = () => {
   return (
     <div className="game">
       <div className="art-image">
-        <img
-          src={artist.art[activeStep].url}
-          alt={artist.art[activeStep]._id}
-        />
+        {artist._id ? (
+          <img
+            src={artist.art[activeStep].url}
+            alt={artist.art[activeStep]._id}
+          />
+        ) : (
+          <Stack spacing={1}>
+            <Skeleton variant="text" />
+            <Skeleton variant="circular" width={40} height={40} />
+            <Skeleton variant="rectangular" width={300} height={118} />
+          </Stack>
+        )}
       </div>
       <div className="art-list">
         <Box>
@@ -93,6 +124,29 @@ const Game = () => {
             Submit
           </Button>
         </form>
+      </div>
+      <div className="art-guess">
+        <Stack sx={{ width: "50%" }} spacing={1}>
+          {guesses.attempts.map((attempt) => (
+            <Alert icon={<CheckIcon fontSize="inherit" />} severity="success">
+              {attempt}
+            </Alert>
+          ))}
+        </Stack>
+        {/* <List dense={false}>
+          {guesses.attempts.map((attempt) => (
+            <ListItem className="list-item" alignItems="flex-start">
+              <ListItemIcon className="list-icon">
+                {isAnswer(attempt, artist.name) ? (
+                  <CheckIcon fontSize="medium" />
+                ) : (
+                  <ClearIcon fontSize="medium" />
+                )}
+              </ListItemIcon>
+              <ListItemText primary={attempt} />
+            </ListItem>
+          ))}
+        </List> */}
       </div>
     </div>
   );
