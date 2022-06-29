@@ -42,7 +42,9 @@ const Game = () => {
   });
 
   const handleStep = (step: number) => () => {
-    if (step === 0 || completed[step - 1] === true) {
+    if (step > 4) {
+      setActiveStep(4);
+    } else if (step === 0 || completed[step - 1] === true) {
       setActiveStep(step);
     }
   };
@@ -79,100 +81,94 @@ const Game = () => {
 
   return (
     <div className="page">
-      <div className="content">
-        <div className="image-stuff">
-          <div className="art-image">
-            {artist._id ? (
-              <img
-                src={artist.art[activeStep].url}
-                alt={artist.art[activeStep]._id}
-              />
-            ) : (
-              <Stack spacing={1}>
-                <Skeleton variant="text" />
-                <Skeleton variant="circular" width={40} height={40} />
-                <Skeleton variant="rectangular" width={300} height={118} />
-              </Stack>
-            )}
-          </div>
-          <div className="art-list">
-            <Box>
-              <Stepper nonLinear activeStep={activeStep}>
-                {Array.from(Array(5).keys()).map((index) => (
-                  <Step key={index} completed={completed[index]}>
-                    <StepButton color="inherit" onClick={handleStep(index)} />
-                  </Step>
-                ))}
-              </Stepper>
-            </Box>
-          </div>
-        </div>
-        <div className="text-stuff">
-          <div className="art-name">
-            <Box>
-              {artist.name.split(/([^a-z])/i).map((word: string) => {
-                console.log(artist.name, word);
-                let word_key = Math.random().toString(36).slice(2, 7);
-                if (names.includes(word)) {
-                  return (
-                    <span key={word_key} className="name-mask">
-                      {word}
-                    </span>
-                  );
-                } else {
-                  return (
-                    <span key={word_key} className="name-plain">
-                      {word}
-                    </span>
-                  );
-                }
-              })}
-            </Box>
-          </div>
-          <div className="art-input">
-            <form
-              className="input-form"
-              onSubmit={(valueEvent) => {
-                valueEvent.preventDefault();
-                validateArtist(gameValue);
-              }}
-            >
-              <TextField
-                className="form-text"
-                fullWidth
-                size="small"
-                id="outlined-basic"
-                label="Artist"
-                name="artist"
-                variant="outlined"
-                onChange={(e) => {
-                  setGameValue(e.target.value);
-                }}
-              />
-              <Button
-                className="form-button"
-                type={"submit"}
-                variant="contained"
-              >
-                Submit
-              </Button>
-            </form>
-          </div>
-          <div className="art-guess">
-            <Stack sx={{ width: "inherit" }} spacing={1}>
-              {guesses.attempts.map((attempt) => {
-                const match = isAnswer(attempt, artist.name);
-                return (
-                  <Alert key={attempt} severity={severities[match]}>
-                    {attempt}
-                  </Alert>
-                );
-              })}
+      <div className="image-stuff">
+        <div className="art-image">
+          {artist._id ? (
+            <img
+              src={artist.art[activeStep].url}
+              alt={artist.art[activeStep]._id}
+            />
+          ) : (
+            <Stack spacing={1}>
+              <Skeleton variant="text" />
+              <Skeleton variant="circular" width={40} height={40} />
+              <Skeleton variant="rectangular" width={300} height={118} />
             </Stack>
-          </div>
+          )}
+        </div>
+        <div className="art-list">
+          <Box>
+            <Stepper nonLinear activeStep={activeStep}>
+              {Array.from(Array(5).keys()).map((index) => (
+                <Step key={index} completed={completed[index]}>
+                  <StepButton color="inherit" onClick={handleStep(index)} />
+                </Step>
+              ))}
+            </Stepper>
+          </Box>
         </div>
       </div>
-      <div className="art-rest"></div>
+      <div className="text-stuff">
+        <div className="art-name">
+          <Box>
+            {artist.name.split(/([^a-z])/i).map((word: string) => {
+              console.log(artist.name, word);
+              let word_key = Math.random().toString(36).slice(2, 7);
+              if (names.includes(word)) {
+                return (
+                  <span key={word_key} className="name-mask">
+                    {word}
+                  </span>
+                );
+              } else {
+                return (
+                  <span key={word_key} className="name-plain">
+                    {word}
+                  </span>
+                );
+              }
+            })}
+          </Box>
+        </div>
+        <div className="art-input">
+          <form
+            className="input-form"
+            onSubmit={(valueEvent) => {
+              valueEvent.preventDefault();
+              validateArtist(gameValue);
+            }}
+          >
+            <TextField
+              className="form-text"
+              fullWidth
+              size="small"
+              id="outlined-basic"
+              label="Artist"
+              name="artist"
+              variant="outlined"
+              onChange={(e) => {
+                setGameValue(e.target.value);
+              }}
+            />
+            &nbsp;
+            <Button className="form-button" type={"submit"} variant="contained">
+              Submit
+            </Button>
+          </form>
+        </div>
+        <div className="art-guess">
+          <Stack sx={{ width: "inherit" }} spacing={1}>
+            {guesses.attempts.map((attempt) => {
+              const match = isAnswer(attempt, artist.name);
+              return (
+                <Alert key={attempt} severity={severities[match]}>
+                  {attempt}
+                </Alert>
+              );
+            })}
+          </Stack>
+        </div>
+      </div>
     </div>
   );
 };
