@@ -8,6 +8,7 @@ import Button from "@mui/material/Button";
 import Skeleton from "@mui/material/Skeleton";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
+import Snackbar from "@mui/material/Snackbar";
 import "../assets/css/game.sass";
 import "../assets/css/page.sass";
 import { getDailyArt } from "../api/art";
@@ -37,6 +38,8 @@ const Game = () => {
   const [artist, setArtist] = useState(daily_artist);
   const [names, setNames] = useState(nameset);
   const [gameValue, setGameValue] = useState("");
+  const [loss, setLoss] = useState(false);
+  const [win, setWin] = useState(false);
   const [guesses, setGuesses] = useState<{ attempts: string[] }>({
     attempts: [],
   });
@@ -50,18 +53,22 @@ const Game = () => {
   };
 
   const validateArtist = async (attempt: string) => {
-    setGuesses({
-      attempts: [...guesses.attempts, attempt],
-    });
     let results = await fuzzyMatch(
       attempt.toLowerCase(),
       artist.name.toLowerCase()
     );
     if (results.length === 0) {
       completed[activeStep] = true;
-      setActiveStep(activeStep + 1);
+      if (activeStep < 4) {
+        setActiveStep(activeStep + 1);
+      }
     } else {
       setNames(names.filter((name) => !results.includes(name.toLowerCase())));
+    }
+    if (!(loss || win)) {
+      setGuesses({
+        attempts: [...guesses.attempts, attempt],
+      });
     }
   };
 
@@ -79,8 +86,50 @@ const Game = () => {
     setNames(artist.name.split(regex));
   }, [artist]);
 
+  useEffect(() => {
+    let done_attempts = completed.every((elem) => elem === true);
+    let found_answer = names.length === 0;
+    if (found_answer) {
+      setWin(true);
+      console.log("Won!");
+    } else if (done_attempts) {
+      setLoss(true);
+      console.log("Oops.");
+      setNames(nameset);
+    }
+  }, [guesses, names]);
+
   return (
     <div className="page">
+      <Snackbar
+        open={loss}
+        autoHideDuration={6000}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+        onClose={() => setLoss(false)}
+      >
+        <Alert
+          onClose={() => setLoss(false)}
+          severity="error"
+          sx={{ width: "inherit" }}
+        >
+          Oops. You have run out of guesses.
+        </Alert>
+      </Snackbar>
+      <Snackbar
+        open={win}
+        autoHideDuration={6000}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+        onClose={() => setWin(false)}
+      >
+        <Alert
+          onClose={() => setWin(false)}
+          severity="success"
+          sx={{ width: "inherit" }}
+        >
+          Congratulations! Right Answer!
+        </Alert>
+      </Snackbar>
+
       <div className="image-stuff">
         <div className="art-image">
           {artist._id ? (
@@ -112,7 +161,6 @@ const Game = () => {
         <div className="art-name">
           <Box>
             {artist.name.split(/([^a-z])/i).map((word: string) => {
-              console.log(artist.name, word);
               let word_key = Math.random().toString(36).slice(2, 7);
               if (names.includes(word)) {
                 return (
@@ -139,6 +187,7 @@ const Game = () => {
             }}
           >
             <TextField
+              disabled={loss || win}
               className="form-text"
               fullWidth
               size="small"
@@ -151,17 +200,27 @@ const Game = () => {
               }}
             />
             &nbsp;
-            <Button className="form-button" type={"submit"} variant="contained">
+            <Button
+              disabled={loss || win}
+              className="form-button"
+              type={"submit"}
+              variant="contained"
+            >
               Submit
             </Button>
           </form>
         </div>
         <div className="art-guess">
-          <Stack sx={{ width: "inherit" }} spacing={1}>
-            {guesses.attempts.map((attempt) => {
+          <Stack className="guess-stack" spacing={1}>
+            {guesses.attempts.map((attempt, index) => {
               const match = isAnswer(attempt, artist.name);
               return (
-                <Alert key={attempt} severity={severities[match]}>
+                <Alert
+                  className="guess-alert"
+                  sx={{ display: "flex" }}
+                  key={index}
+                  severity={severities[match]}
+                >
                   {attempt}
                 </Alert>
               );

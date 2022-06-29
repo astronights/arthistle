@@ -40,7 +40,7 @@ const Info = () => {
     },
     {
       guess: (
-        <Alert key="warning" severity="warning">
+        <Alert key="error" severity="error">
           Attempt #3
         </Alert>
       ),
@@ -50,7 +50,7 @@ const Info = () => {
     },
     {
       guess: (
-        <Alert key="error" severity="error">
+        <Alert key="warning" severity="warning">
           Attempt #4
         </Alert>
       ),

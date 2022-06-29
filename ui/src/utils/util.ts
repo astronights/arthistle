@@ -18,7 +18,6 @@ export const fuzzyMatch = (attempt: string, artist: string) => {
 
 export const isAnswer = (attempt: string, artist: string) => {
   let names = fuzzyMatch(attempt, artist).sort();
-  console.log(names);
   if (names.length === artist.split(regex).length) {
     return 3;
   } else if (names.length < artist.split(regex).length && names.length > 0) {
@@ -30,4 +29,4 @@ export const isAnswer = (attempt: string, artist: string) => {
   }
 };
 
-export const severities: AlertColor[] = ["error", "warning", "info", "success"];
+export const severities: AlertColor[] = ["warning", "error", "info", "success"];
