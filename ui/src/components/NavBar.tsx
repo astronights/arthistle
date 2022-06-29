@@ -23,9 +23,9 @@ const NavBar = () => {
           className={(isActive) =>
             "nav-link" + (!isActive.isActive ? "" : "-active")
           }
-          to="/about"
+          to="/info"
         >
-          About
+          Info
         </NavLink>
       </Toolbar>
     </AppBar>

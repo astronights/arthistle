@@ -18,6 +18,7 @@ export const fuzzyMatch = (attempt: string, artist: string) => {
 
 export const isAnswer = (attempt: string, artist: string) => {
   let names = fuzzyMatch(attempt, artist).sort();
+  console.log(names);
   if (names.length === artist.split(regex).length) {
     return 3;
   } else if (names.length < artist.split(regex).length && names.length > 0) {

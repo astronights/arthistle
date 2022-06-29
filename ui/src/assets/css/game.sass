@@ -1,11 +1,6 @@
 @use "colors" as colors
 @use "media" as medium
-.game
-    display: flex
-    flex-direction: column
-    justify-content: center
-    margin: auto
-    background-color: colors.$black
+
 
 .art-image
     justify-content: center
@@ -76,3 +71,29 @@ img
     padding: 0
     align-items: center
     margin-top: 0px
+
+.art-rest
+    display: flex
+    justify-content: center
+    // margin: 0
+    flex-grow: 1
+
+.image-stuff
+    display: flex
+    justify-content: center
+    flex-direction: column
+
+.text-stuff
+    display: flex
+    justify-content: center
+    flex-direction: column
+
+.content
+    display: flex
+    justify-content: space-evenly
+    @media screen and (max-width: medium.$tablet)
+        flex-direction: column
+    @media screen and (min-width: medium.$tablet)
+        flex-direction: column
+    @media screen and (min-width: medium.$desktop)
+        flex-direction: column
