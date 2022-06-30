@@ -5,6 +5,8 @@ const api = axios.create({
   baseURL: config.server,
 });
 
+console.log(config);
+
 export const request = <T>(
   method: Method,
   url: string,
