@@ -1,9 +1,6 @@
 import axios, { Method, AxiosResponse } from "axios";
-import config from "../config/config";
 
-const api = axios.create({
-  // baseURL: config.server,
-});
+const api = axios.create({});
 
 export const request = <T>(
   method: Method,

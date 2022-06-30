@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
 import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
@@ -196,7 +196,7 @@ const Game = () => {
               label="Artist"
               name="artist"
               variant="outlined"
-              onChange={(e) => {
+              onChange={(e: { target: { value: SetStateAction<string> } }) => {
                 setGameValue(e.target.value);
               }}
             />
