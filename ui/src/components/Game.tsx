@@ -33,6 +33,7 @@ const nameset: string[] = [""];
 
 const completed: boolean[] = [false, false, false, false, false];
 
+//TODO: Modularise components
 const Game = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [artist, setArtist] = useState(daily_artist);
