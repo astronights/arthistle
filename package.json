@@ -5,7 +5,7 @@
   "scripts": {
     "start": "cd server/ && npm install && npm start",
     "build": "cd ui/ && npm install && npm run build",
-    "heroku-postbuild": "cd ui/ && npm install && npm run build"
+    "heroku-postbuild": "REACT_APP_PORT=$PORT cd ui/ && npm install && npm run build"
   },
   "repository": {
     "type": "git",
