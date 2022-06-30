@@ -8,9 +8,11 @@ export const fuzzyMatch = (attempt: string, artist: string) => {
   return attempt
     .split(regex)
     .map((part: string) => {
-      let words = fuzzy.filter(part, artistParts).map((element) => {
-        return element.string;
-      });
+      let words = fuzzy
+        .filter(part, artistParts)
+        .map((element: { string: any }) => {
+          return element.string;
+        });
       return [...new Set(words)];
     })
     .flat();
