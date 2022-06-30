@@ -12,7 +12,9 @@ import ArtName from "./gameParts/ArtName";
 import ArtInput from "./gameParts/ArtInput";
 import ArtGuess from "./gameParts/ArtGuess";
 import { toClipboard } from "../utils/exportUtil";
-import { useCookies } from "react-cookie";
+import { storeLocal } from "../utils/storageUtil";
+import { stateType } from "../types/state";
+import _ from "lodash";
 
 const daily_artist: artist = {
   _id: "",
@@ -28,23 +30,45 @@ const daily_artist: artist = {
 };
 
 const gameSize: number = 5;
-const nameset: string[] = [""];
-const completed: boolean[] = Array(gameSize).fill(false);
 
 const Game = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [artist, setArtist] = useState(daily_artist);
-  const [names, setNames] = useState(nameset);
+  const [names, setNames] = useState([""]);
   const [loss, setLoss] = useState(false);
   const [win, setWin] = useState(false);
   const [done, setDone] = useState(false);
-  const [cookie, setCookie] = useCookies(["user"]);
+  const [completed, setCompleted] = useState(Array(gameSize).fill(false));
   const [guesses, setGuesses] = useState<{ attempts: string[] }>({
     attempts: [],
   });
 
+  const saveState = () => {
+    storeLocal({
+      completed,
+      activeStep,
+      artist,
+      names,
+      loss,
+      win,
+      done,
+      guesses,
+    });
+  };
+
+  const loadState = (state: stateType) => {
+    setCompleted(state.completed);
+    setActiveStep(state.activeStep);
+    setArtist(state.artist);
+    setNames(state.names);
+    setLoss(state.loss);
+    setWin(state.win);
+    setDone(state.done);
+    setGuesses(state.guesses);
+  };
+
   const handleStep = (step: number) => () => {
-    if (step > 4) {
+    if (step > gameSize - 1) {
       setActiveStep(4);
     } else if (step === 0 || completed[step - 1] === true) {
       setActiveStep(step);
@@ -58,29 +82,33 @@ const Game = () => {
     );
     if (results.length === 0) {
       completed[activeStep] = true;
-      if (activeStep < 4) {
+      if (activeStep < gameSize - 1) {
         setActiveStep(activeStep + 1);
       }
-    } else {
-      setNames(names.filter((name) => !results.includes(name.toLowerCase())));
     }
-    if (!(loss || win)) {
-      setGuesses({
-        attempts: [...guesses.attempts, attempt],
-      });
-    }
-  };
-
-  useEffect(() => {
-    setCookie("user", "cookieVal", {
-      path: "/",
+    setNames(names.filter((name) => !results.includes(name.toLowerCase())));
+    setGuesses({
+      attempts: [...guesses.attempts, attempt],
     });
-  }, [cookie]);
+  };
 
   useEffect(() => {
     getDailyArt()
       .then((data: artist) => {
         setArtist(data);
+        setNames(data.name.split(regex));
+        let prevState = JSON.parse(
+          window.localStorage.getItem("arthistle") || "{}"
+        );
+        if (!_.isEmpty(prevState)) {
+          if (prevState.artist._id === data._id) {
+            loadState(prevState);
+          } else {
+            saveState();
+          }
+        } else {
+          saveState();
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -88,26 +116,25 @@ const Game = () => {
   }, []);
 
   useEffect(() => {
-    setNames(artist.name.split(regex));
-  }, [artist]);
-
-  useEffect(() => {
     let done_attempts = completed.every((elem) => elem === true);
     let found_answer = names.length === 0;
+    console.log(names, completed, found_answer, done_attempts);
     if (found_answer) {
       setWin(true);
       setDone(true);
     } else if (done_attempts) {
       setLoss(true);
       setDone(true);
-      setNames(nameset);
+      setNames([""]);
     }
-  }, [guesses, names]);
+    if (artist._id !== "") saveState();
+  }, [guesses]);
 
   useEffect(() => {
     if (done) {
       toClipboard(completed, guesses.attempts);
     }
+    if (artist._id !== "") saveState();
   }, [done]);
 
   return (

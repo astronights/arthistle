@@ -20,6 +20,8 @@ const Toast = (props: ToastProps) => {
         sx={{ width: "inherit" }}
       >
         {props.text}
+        <br />
+        {"Come back tomorow for another!"}
       </Alert>
     </Snackbar>
   );
