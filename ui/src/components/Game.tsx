@@ -165,7 +165,7 @@ const Game = () => {
               if (names.includes(word)) {
                 return (
                   <span key={word_key} className="name-mask">
-                    {word}
+                    {"█".repeat(word.length)}
                   </span>
                 );
               } else {
