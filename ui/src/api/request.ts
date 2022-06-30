@@ -2,7 +2,7 @@ import axios, { Method, AxiosResponse } from "axios";
 import config from "../config/config";
 
 const api = axios.create({
-  baseURL: config.server,
+  // baseURL: config.server,
 });
 
 console.log(config);
