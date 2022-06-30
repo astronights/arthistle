@@ -16,9 +16,11 @@ const ArtInput = (props: ArtInputProps) => {
         onSubmit={(valueEvent) => {
           valueEvent.preventDefault();
           props.checkArtist(gameValue);
+          setGameValue("");
         }}
       >
         <TextField
+          value={gameValue}
           disabled={props.disabled}
           className="form-text"
           fullWidth

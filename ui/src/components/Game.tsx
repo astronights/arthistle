@@ -12,6 +12,7 @@ import ArtName from "./gameParts/ArtName";
 import ArtInput from "./gameParts/ArtInput";
 import ArtGuess from "./gameParts/ArtGuess";
 import { toClipboard } from "../utils/exportUtil";
+import { useCookies } from "react-cookie";
 
 const daily_artist: artist = {
   _id: "",
@@ -37,6 +38,7 @@ const Game = () => {
   const [loss, setLoss] = useState(false);
   const [win, setWin] = useState(false);
   const [done, setDone] = useState(false);
+  const [cookie, setCookie] = useCookies(["user"]);
   const [guesses, setGuesses] = useState<{ attempts: string[] }>({
     attempts: [],
   });
@@ -68,6 +70,12 @@ const Game = () => {
       });
     }
   };
+
+  useEffect(() => {
+    setCookie("user", "cookieVal", {
+      path: "/",
+    });
+  }, [cookie]);
 
   useEffect(() => {
     getDailyArt()

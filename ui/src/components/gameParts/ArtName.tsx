@@ -1,6 +1,5 @@
 import { Box } from "@mui/material";
 import { artist } from "../../types/artist";
-import { RealisticTyper } from "react-realistic-typer";
 import "../../assets/css/gameParts/ArtName.sass";
 
 interface ArtNameProps {
@@ -23,14 +22,7 @@ const ArtName = (props: ArtNameProps) => {
           } else {
             return (
               <span key={word_key} className="name-plain">
-                {
-                  <RealisticTyper
-                    message={word}
-                    wpm={160}
-                    maxVariance={0.5}
-                    maxPause={500}
-                  />
-                }
+                {word}
               </span>
             );
           }
