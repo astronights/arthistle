@@ -6,6 +6,7 @@ const api = axios.create({
 });
 
 console.log(config);
+console.log(process.env);
 
 export const request = <T>(
   method: Method,
