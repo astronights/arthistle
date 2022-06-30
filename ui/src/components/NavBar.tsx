@@ -1,7 +1,6 @@
 import { AppBar, Toolbar } from "@mui/material";
-import React from "react";
 import { NavLink } from "react-router-dom";
-import "../assets/css/navbar.sass";
+import "../assets/css/Navbar.sass";
 
 const NavBar = () => {
   return (

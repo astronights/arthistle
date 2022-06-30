@@ -32,8 +32,3 @@ export const isAnswer = (attempt: string, artist: string) => {
 };
 
 export const severities: AlertColor[] = ["warning", "error", "info", "success"];
-
-export const toClipboard = (completed: boolean[], winOrLoss: boolean) => {
-  let stats = "Arthistle #TBD\n ";
-  navigator.clipboard.writeText(stats);
-};
