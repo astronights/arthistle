@@ -132,7 +132,10 @@ const Info = () => {
           project is a way to combine my passion of art history and computer
           science skills as I learn the ways around building web applications.
           If you're keen on connecting with me, feel free to drop me an{" "}
-          <a href="mailto:e0925482@u.nus.edu">email</a>.
+          <a href="mailto:e0925482@u.nus.edu">email</a>. I'm always looking to
+          learn more and working on projects that I can contribute to. Some of
+          my other projects can be found on my{" "}
+          <a href="https://github.com/astronights/">Github.</a>
         </p>
       </Box>
     </div>

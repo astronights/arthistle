@@ -2,8 +2,16 @@ import cors from "cors";
 import express from "express";
 import router from "./api/router";
 import path from "path";
+import RateLimit from "express-rate-limit";
+
+const limiter = RateLimit({
+  windowMs: 60 * 1000,
+  max: 100,
+});
 
 const app = express();
+
+app.use(limiter);
 
 // Apply most middleware first
 app.use(express.json());
