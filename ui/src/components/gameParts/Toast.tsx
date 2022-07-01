@@ -1,4 +1,5 @@
-import { Alert, AlertColor, Snackbar } from "@mui/material";
+import { Alert, AlertColor, Backdrop, Button, Snackbar } from "@mui/material";
+import { useState } from "react";
 
 interface ToastProps {
   flag: boolean;
@@ -6,7 +7,7 @@ interface ToastProps {
   code: AlertColor;
   text: string;
 }
-const Toast = (props: ToastProps) => {
+export const Toast = (props: ToastProps) => {
   return (
     <Snackbar
       open={props.flag}
@@ -20,11 +21,30 @@ const Toast = (props: ToastProps) => {
         sx={{ width: "inherit" }}
       >
         {props.text}
-        <br />
-        {"Come back tomorow for another!"}
       </Alert>
     </Snackbar>
   );
 };
 
-export default Toast;
+export const DoneToast = (props: { done: boolean; share: Function }) => {
+  const [open, setOpen] = useState(props.done);
+  return (
+    <Backdrop
+      sx={{ color: "#fff" }}
+      open={open}
+      onClick={() => {
+        setOpen(!open);
+      }}
+    >
+      <Alert
+        severity="info"
+        sx={{ width: "inherit" }}
+        action={
+          <Button color="inherit" size="small" onClick={props.share()}>
+            Share
+          </Button>
+        }
+      ></Alert>
+    </Backdrop>
+  );
+};

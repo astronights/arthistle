@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { artist } from "../types/artist";
 import { regex, fuzzyMatch } from "../utils/matchUtil";
 import ArtImage from "./gameParts/ArtImage";
-import Toast from "./gameParts/Toast";
+import { Toast, DoneToast } from "./gameParts/Toast";
 import ArtList from "./gameParts/ArtList";
 import ArtName from "./gameParts/ArtName";
 import ArtInput from "./gameParts/ArtInput";
@@ -129,12 +129,14 @@ const Game = () => {
     if (artist._id !== "") saveState();
   }, [guesses]);
 
-  useEffect(() => {
-    if (done) {
-      toClipboard(completed, guesses.attempts, done, artist.name.toLowerCase());
-    }
-    if (artist._id !== "") saveState();
-  }, [done]);
+  const share = () => {
+    toClipboard(
+      completed,
+      guesses.attempts,
+      artist.name.toLowerCase(),
+      gameSize
+    );
+  };
 
   return (
     <div className="page">
@@ -150,6 +152,8 @@ const Game = () => {
         text={"Congratulations! Right Answer!"}
         code={"success"}
       />
+
+      <DoneToast done={done} share={share} />
 
       <div className="image-stuff">
         <ArtImage artist={artist} activeStep={activeStep} />

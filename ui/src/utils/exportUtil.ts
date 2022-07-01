@@ -1,23 +1,35 @@
-import { fuzzyMatch } from "./matchUtil";
+import { isAnswer } from "./matchUtil";
 
-const symbols = { red: "🟥", yellow: "🟨", green: "🟩", black: "⬛" };
+const symbols = ["⬛", "🟥", "🟨", "🟩"];
 export const toClipboard = (
   completed: boolean[],
   guesses: string[],
-  done: boolean,
-  artist: string
+  artist: string,
+  gameSize: number
 ) => {
-  let emojis = "";
-  let stats = ["Arthistle #TBD", "Arthistle: https://arthistle.herokuapp.com/"];
-  let i = 0;
+  let emojis = Array(gameSize).fill(symbols[0]);
   let c = 0;
-  while (i < completed.length) {
-    if (completed[i]) {
-      let res = fuzzyMatch(guesses[i].toLowerCase(), artist);
-      if (res.length > 0) {
-        c++;
-      }
+  guesses.forEach((guess: string) => {
+    let res = isAnswer(guess.toLowerCase(), artist);
+    let prevEmoji = symbols.findIndex((e) => e === emojis[c]);
+    if (prevEmoji < res) {
+      emojis[c] = symbols[res];
     }
+    if (res < 2) {
+      c++;
+    }
+  });
+  let firstFalse = completed.findIndex((c: boolean) => {
+    return c === false;
+  });
+  if (firstFalse >= 0 || firstFalse < gameSize) {
+    emojis[firstFalse] = symbols[3];
   }
+
+  const stats = [
+    "Arthistle #TBD",
+    emojis.join(""),
+    "Arthistle: https://arthistle.herokuapp.com/",
+  ];
   navigator.clipboard.writeText(stats.join("\n"));
 };
