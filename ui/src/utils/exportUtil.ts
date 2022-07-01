@@ -32,5 +32,9 @@ export const toClipboard = (
     emojis.join(""),
     "Arthistle: https://arthistle.herokuapp.com/",
   ];
-  navigator.clipboard.writeText(stats.join("\n"));
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(stats.join("\n"));
+    return true;
+  }
+  return false;
 };

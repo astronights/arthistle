@@ -130,7 +130,7 @@ const Game = () => {
   }, [guesses]);
 
   const share = () => {
-    toClipboard(
+    return toClipboard(
       completed,
       guesses.attempts,
       artist.name.toLowerCase(),
