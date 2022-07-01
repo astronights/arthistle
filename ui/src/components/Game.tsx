@@ -118,7 +118,6 @@ const Game = () => {
   useEffect(() => {
     let done_attempts = completed.every((elem) => elem === true);
     let found_answer = names.length === 0;
-    console.log(names, completed, found_answer, done_attempts);
     if (found_answer) {
       setWin(true);
       setDone(true);
