@@ -131,7 +131,7 @@ const Game = () => {
 
   useEffect(() => {
     if (done) {
-      toClipboard(completed, guesses.attempts);
+      toClipboard(completed, guesses.attempts, done, artist.name.toLowerCase());
     }
     if (artist._id !== "") saveState();
   }, [done]);

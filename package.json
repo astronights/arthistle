@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/astronights/arthistle#readme",
   "dependencies": {
+    "@mui/material": "^5.8.6",
+    "axios": "^0.27.2",
+    "fuzzy": "^0.1.3",
     "typescript": "^4.7.4"
   },
   "devDependencies": {
