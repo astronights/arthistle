@@ -1,5 +1,5 @@
-import { Box, Step, StepButton, Stepper } from "@mui/material";
 import "../../assets/css/gameParts/ArtList.sass";
+import { Box, Step, StepButton, Stepper } from "@mui/material";
 
 interface ArtListProps {
   size: number;

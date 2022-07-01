@@ -1,6 +1,6 @@
-import { Alert, Stack } from "@mui/material";
 import { isAnswer, severities } from "../../utils/matchUtil";
 import "../../assets/css/gameParts/ArtGuess.sass";
+import { Alert, Stack } from "@mui/material";
 
 interface ArtGuessProps {
   name: string;

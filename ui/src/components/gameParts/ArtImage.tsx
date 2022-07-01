@@ -1,7 +1,6 @@
-import { Stack } from "@mui/material";
-import Skeleton from "@mui/material/Skeleton";
 import { artist } from "../../types/artist";
 import "../../assets/css/gameParts/ArtImage.sass";
+import { Skeleton, Stack } from "@mui/material";
 
 interface ArtImageProps {
   artist: artist;

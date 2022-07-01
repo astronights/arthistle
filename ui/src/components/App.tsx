@@ -1,6 +1,6 @@
+import { createTheme, ThemeProvider } from "@mui/material";
 import "../assets/css/App.sass";
 import Layer from "./Layer";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 const App = () => {
   const darkTheme = createTheme({

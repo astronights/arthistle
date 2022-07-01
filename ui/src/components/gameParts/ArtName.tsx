@@ -1,6 +1,6 @@
-import { Box } from "@mui/material";
 import { artist } from "../../types/artist";
 import "../../assets/css/gameParts/ArtName.sass";
+import { Box } from "@mui/material";
 
 interface ArtNameProps {
   artist: artist;

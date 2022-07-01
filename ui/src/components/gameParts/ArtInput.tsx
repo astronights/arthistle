@@ -1,6 +1,6 @@
-import { Button, TextField } from "@mui/material";
 import { SetStateAction, useState } from "react";
 import "../../assets/css/gameParts/ArtInput.sass";
+import { Button, TextField } from "@mui/material";
 
 interface ArtInputProps {
   disabled: boolean;
