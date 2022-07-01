@@ -17,6 +17,10 @@ export const Toast = (props: ToastProps) => {
     setOpen(props.flag);
   }, [props.flag]);
 
+  const padNum = (x: number) => {
+    return String(x).padStart(2, "0");
+  };
+
   return (
     <Backdrop
       sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
@@ -53,7 +57,8 @@ export const Toast = (props: ToastProps) => {
               date={midnightTom()}
               renderer={(timeprops) => (
                 <span>
-                  {timeprops.hours}:{timeprops.minutes}:{timeprops.seconds}
+                  {padNum(timeprops.hours)}:{padNum(timeprops.minutes)}:
+                  {padNum(timeprops.seconds)}
                 </span>
               )}
             />
