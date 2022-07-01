@@ -1,7 +1,7 @@
 import { Alert, AlertColor, Backdrop, Button, Snackbar } from "@mui/material";
 import { useEffect, useState } from "react";
 import Countdown from "react-countdown";
-import { midnightTom } from "../../utils/dateUtil";
+import { midnightTom, getNumber } from "../../utils/dateUtil";
 
 interface ToastProps {
   flag: boolean;
@@ -51,7 +51,8 @@ export const Toast = (props: ToastProps) => {
             </Button>
           }
         >
-          {props.text} The next Arthistle will be available in{" "}
+          {props.text} The next Arthistle (#{getNumber() + 1}) will be available
+          in{" "}
           {
             <Countdown
               date={midnightTom()}
@@ -63,6 +64,7 @@ export const Toast = (props: ToastProps) => {
               )}
             />
           }
+          . Stay tuned!
         </Alert>
       </Snackbar>
     </Backdrop>
