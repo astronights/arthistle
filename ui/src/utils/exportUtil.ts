@@ -1,3 +1,4 @@
+import { getNumber } from "./dateUtil";
 import { isAnswer } from "./matchUtil";
 
 const symbols = ["⬛", "🟥", "🟨", "🟩"];
@@ -27,7 +28,7 @@ export const toClipboard = (
   }
 
   const stats = [
-    "Arthistle #TBD",
+    `Arthistle #${getNumber()}`,
     emojis.join(""),
     "Arthistle: https://arthistle.herokuapp.com/",
   ];

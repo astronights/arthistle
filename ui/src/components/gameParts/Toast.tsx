@@ -1,50 +1,67 @@
 import { Alert, AlertColor, Backdrop, Button, Snackbar } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Countdown from "react-countdown";
+import { midnightTom } from "../../utils/dateUtil";
 
 interface ToastProps {
   flag: boolean;
   update: Function;
   code: AlertColor;
   text: string;
+  share: Function;
 }
 export const Toast = (props: ToastProps) => {
-  return (
-    <Snackbar
-      open={props.flag}
-      autoHideDuration={6000}
-      anchorOrigin={{ vertical: "top", horizontal: "center" }}
-      onClose={() => props.update(false)}
-    >
-      <Alert
-        onClose={() => props.update(false)}
-        severity={props.code}
-        sx={{ width: "inherit" }}
-      >
-        {props.text}
-      </Alert>
-    </Snackbar>
-  );
-};
+  const [open, setOpen] = useState(false);
 
-export const DoneToast = (props: { done: boolean; share: Function }) => {
-  const [open, setOpen] = useState(props.done);
+  useEffect(() => {
+    setOpen(props.flag);
+  }, [props.flag]);
+
   return (
     <Backdrop
-      sx={{ color: "#fff" }}
+      sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
       open={open}
-      onClick={() => {
+      onClick={(e) => {
         setOpen(!open);
       }}
     >
-      <Alert
-        severity="info"
-        sx={{ width: "inherit" }}
-        action={
-          <Button color="inherit" size="small" onClick={props.share()}>
-            Share
-          </Button>
-        }
-      ></Alert>
+      <Snackbar
+        open={props.flag}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+        onClose={() => props.update(false)}
+      >
+        <Alert
+          severity={props.code}
+          sx={{ width: "inherit" }}
+          onClick={(e) => e.stopPropagation()}
+          action={
+            <Button
+              color="inherit"
+              size="small"
+              onClick={(e) => {
+                e.stopPropagation();
+                props.share();
+              }}
+            >
+              Share
+            </Button>
+          }
+        >
+          {props.text} The next Arthistle will be available in{" "}
+          {
+            <Countdown
+              date={midnightTom()}
+              renderer={(timeprops) => (
+                <span>
+                  {timeprops.hours}:{timeprops.minutes}:{timeprops.seconds}
+                </span>
+              )}
+            />
+          }
+        </Alert>
+      </Snackbar>
     </Backdrop>
   );
 };
+
+export default Toast;

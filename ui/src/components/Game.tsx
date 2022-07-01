@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { artist } from "../types/artist";
 import { regex, fuzzyMatch } from "../utils/matchUtil";
 import ArtImage from "./gameParts/ArtImage";
-import { Toast, DoneToast } from "./gameParts/Toast";
+import { Toast } from "./gameParts/Toast";
 import ArtList from "./gameParts/ArtList";
 import ArtName from "./gameParts/ArtName";
 import ArtInput from "./gameParts/ArtInput";
@@ -145,15 +145,15 @@ const Game = () => {
         update={setLoss}
         text={"Oops. You have run out of guesses."}
         code={"error"}
+        share={share}
       />
       <Toast
         flag={win}
         update={setWin}
         text={"Congratulations! Right Answer!"}
         code={"success"}
+        share={share}
       />
-
-      <DoneToast done={done} share={share} />
 
       <div className="image-stuff">
         <ArtImage artist={artist} activeStep={activeStep} />
