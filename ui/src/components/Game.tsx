@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../assets/css/Game.sass";
+import "../assets/css/game.sass";
 import "../assets/css/page.sass";
 import { getDailyArt } from "../api/art";
 import { useEffect } from "react";
