@@ -15,7 +15,7 @@ const ArtInput = (props: ArtInputProps) => {
         className="input-form"
         onSubmit={(valueEvent) => {
           valueEvent.preventDefault();
-          props.checkArtist(gameValue);
+          if (gameValue !== "") props.checkArtist(gameValue);
           setGameValue("");
         }}
       >
