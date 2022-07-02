@@ -12,8 +12,11 @@ export const fuzzyMatch = (attempt: string, artist: string) => {
       let words = fuzzy
         .filter(part.toLowerCase(), artistParts)
         .map((element: { string: any }) => {
+          if (part.length < 3 && element.string.length > 2 * part.length)
+            return null;
           return element.string;
-        });
+        })
+        .filter((element: any) => element !== null);
       return [...new Set(words)];
     })
     .flat();
