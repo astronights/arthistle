@@ -1,16 +1,10 @@
 import NavBar from "./NavBar";
 import Router from "./Router";
+import "../assets/css/layer.sass";
 
 const Layer = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        flexGrow: 1,
-      }}
-    >
+    <div className="layer">
       <NavBar />
       <Router />
     </div>

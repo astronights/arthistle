@@ -1,5 +1,5 @@
 export class BaseArtService {
-  getArtToday(): any {
+  getArtToday(date?: string): any {
     throw new Error("Method not implemented.");
   }
 }

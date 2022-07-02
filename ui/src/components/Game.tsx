@@ -15,6 +15,7 @@ import { toClipboard } from "../utils/exportUtil";
 import { storeLocal } from "../utils/storageUtil";
 import { stateType } from "../types/state";
 import _ from "lodash";
+import { getLocalDate } from "../utils/dateUtil";
 
 const daily_artist: artist = {
   _id: "",
@@ -93,7 +94,7 @@ const Game = () => {
   };
 
   useEffect(() => {
-    getDailyArt()
+    getDailyArt(getLocalDate())
       .then((data: artist) => {
         setArtist(data);
         setNames(data.name.split(regex));

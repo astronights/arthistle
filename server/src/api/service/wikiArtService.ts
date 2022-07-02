@@ -4,11 +4,16 @@ import config from "../../config/config";
 import Artist, { art, artist } from "../../model/artist";
 import { BaseArtService } from "./baseArtService";
 import top_100_artists from "../../data/wiki_top_100_artists.json";
+import { getLocalDate } from "../../util/dateUtil";
 
 export class WikiArtService extends BaseArtService {
   top_artists: { [key: string]: any } = top_100_artists;
-  public getArtToday = async (): Promise<artist> => {
-    const localDate = new Date().toISOString().split("T")[0];
+  public getArtToday = async (date?: string): Promise<artist> => {
+    const localDate =
+      !date || date > getLocalDate() || date < config.art.inception
+        ? getLocalDate()
+        : date;
+
     let daily_artist = <artist>await Artist.findOne({ date: localDate }).catch(
       (error) => {
         console.log(error);
@@ -16,7 +21,6 @@ export class WikiArtService extends BaseArtService {
       }
     );
     if (daily_artist == null) {
-      console.log("Need to get new daily art");
       return this.generateDailyArt();
     } else {
       return Promise.resolve(daily_artist);
@@ -49,7 +53,7 @@ export class WikiArtService extends BaseArtService {
       _id: artist_id,
       name: this.top_artists[artist_id].artistName,
       url: this.top_artists[artist_id].artistUrl,
-      date: new Date().toISOString().split("T")[0],
+      date: getLocalDate(),
       art: art,
     });
     return Promise.resolve(dailyArt.save());

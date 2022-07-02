@@ -2,6 +2,7 @@ import React from "react";
 import Game from "./Game";
 import { Routes, Route } from "react-router-dom";
 import Info from "./Info";
+import "../assets/css/page.sass";
 
 const Router: React.FC = () => {
   return (
@@ -12,7 +13,7 @@ const Router: React.FC = () => {
       <Route
         path="*"
         element={
-          <main style={{ padding: "1rem" }}>
+          <main>
             <p>There's nothing here!</p>
           </main>
         }

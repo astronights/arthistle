@@ -9,6 +9,7 @@ const config = {
   },
   art: {
     source: "wiki",
+    inception: "2022-07-01",
     met: {
       host: "https://collectionapi.metmuseum.org",
       path: {
