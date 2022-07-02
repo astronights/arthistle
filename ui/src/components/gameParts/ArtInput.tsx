@@ -9,13 +9,18 @@ interface ArtInputProps {
 
 const ArtInput = (props: ArtInputProps) => {
   const [gameValue, setGameValue] = useState("");
+
+  const isInputValid = (x: string) => {
+    return /^[A-Za-z\s]*$/.test(x);
+  };
   return (
     <div className="art-input">
       <form
         className="input-form"
         onSubmit={(valueEvent) => {
           valueEvent.preventDefault();
-          if (gameValue !== "") props.checkArtist(gameValue);
+          if (gameValue !== "")
+            props.checkArtist(gameValue.replace(/\s{2,}/g, " ").trim());
           setGameValue("");
         }}
       >
@@ -30,7 +35,9 @@ const ArtInput = (props: ArtInputProps) => {
           name="artist"
           variant="outlined"
           onChange={(e: { target: { value: SetStateAction<string> } }) => {
-            setGameValue(e.target.value);
+            let text = e.target.value.toString();
+            let isError = !isInputValid(text) || text.trim().length === 0;
+            if (!isError) setGameValue(text);
           }}
         />
         &nbsp;

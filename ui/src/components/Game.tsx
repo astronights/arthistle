@@ -77,6 +77,7 @@ const Game = () => {
   };
 
   const validateArtist = async (attempt: string) => {
+    console.log(`Checking ${attempt}`);
     let results = await fuzzyMatch(
       attempt.toLowerCase(),
       artist.name.toLowerCase()
