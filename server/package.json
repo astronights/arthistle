@@ -7,7 +7,7 @@
     "rimraf": "./node_modules/rimraf/bin.js",
     "clean": "rimraf build",
     "build": "npm run clean && tsc",
-    "start": "npm run build && node build/server.js",
+    "start": "npm run build && node build/src/server.js",
     "test": "nyc --reporter=text mocha -r ts-node/register test/src/**/*.test.ts"
   },
   "author": "Agrawal, Shubhankar",
