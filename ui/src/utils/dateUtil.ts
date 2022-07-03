@@ -14,12 +14,6 @@ export const getNumber = () => {
 };
 
 export const getLocalDate = () => {
-  const localDate = new Date(
-    new Date().getTime() - new Date().getTimezoneOffset() * 60 * 1000
-  );
-  console.log(new Date());
-  console.log(new Date().getTimezoneOffset());
-  console.log(Intl.DateTimeFormat().resolvedOptions().timeZone);
-  console.log(localDate);
+  const localDate = new Date();
   return localDate.toISOString().split("T")[0];
 };
