@@ -4,15 +4,16 @@ import config from "../../config/config";
 import Artist, { art, artist } from "../../model/artist";
 import { BaseArtService } from "./baseArtService";
 import top_100_artists from "../../data/wiki_top_100_artists.json";
-import { getLocalDate } from "../../util/dateUtil";
+import { getLocalDate, getLocalDateTomorrow } from "../../util/dateUtil";
 
 export class WikiArtService extends BaseArtService {
   top_artists: { [key: string]: any } = top_100_artists;
   public getArtToday = async (date?: string): Promise<artist> => {
     const localDate =
-      !date || date > getLocalDate() || date < config.art.inception
+      !date || date > getLocalDateTomorrow() || date < config.art.inception
         ? getLocalDate()
         : date;
+    console.log(`Server: ${date}, ${localDate}`);
 
     let daily_artist = <artist>await Artist.findOne({ date: localDate }).catch(
       (error) => {
