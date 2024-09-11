@@ -1,2 +1,24 @@
 # Arthistle
-An Art History guessing game 
+An Art History guessing game inspired from Wordle to guess a Top 100 Artist from a series of 5 works.
+
+![image](https://github.com/user-attachments/assets/34d33a1e-543a-4de0-8b31-afc5ae0bf671)
+
+## Data
+
+The data is taken from an open source repository of artists and their artworks. The two key sources used are:
+- Met Museum Database
+- WikiArt
+
+## Technology Stack
+
+Typescript on the MERN stack is used to create the app.
+- Express server as the backend
+- React project as the frontend.
+
+## How to Run
+
+To run the project, clone the repository, setup your MongoDB credential and use the command.
+
+```bash
+npm start
+```
