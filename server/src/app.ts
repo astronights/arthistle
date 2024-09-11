@@ -13,7 +13,6 @@ const app = express();
 
 app.use(limiter);
 
-// Apply most middleware first
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({ origin: "*" }));

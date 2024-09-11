@@ -7,10 +7,7 @@ if (mongo_uri === undefined) {
   throw "Please define the MONGO_URI in the .env file!";
 }
 
-mongoose.connect(mongo_uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-} as ConnectOptions);
+mongoose.connect(mongo_uri, {} as ConnectOptions);
 
 mongoose.connection.on("connected", () => {
   console.log(`Connected to MongoDB`);

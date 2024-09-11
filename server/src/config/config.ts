@@ -5,11 +5,11 @@ const config = {
   host: process.env["HOST"] || "0.0.0.0",
   port: parseInt(process.env["PORT"] || "4242"),
   mongo: {
-    uri: `mongodb+srv://astronights:${process.env["MONGO_PASS"]}@cluster0.u9npa.mongodb.net/arthistle?retryWrites=true&w=majority`,
+    uri: `mongodb+srv://e0925482:${process.env["MONGO_PASS"]}@cluster-e0925482.g5ni9qp.mongodb.net/arthistle`
   },
   art: {
     source: "wiki",
-    inception: "2022-07-01",
+    inception: "2024-07-01",
     met: {
       host: "https://collectionapi.metmuseum.org",
       path: {
