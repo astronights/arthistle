@@ -23,17 +23,16 @@
     "mongoose": "^8.6.1"
   },
   "devDependencies": {
-    "@types/chai": "^4.3.1",
-    "@types/cors": "^2.8.12",
-    "@types/express": "^4.17.13",
-    "@types/lodash": "^4.14.182",
-    "@types/mocha": "^9.1.1",
+    "@types/chai": "^4.3.19",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/lodash": "^4.17.7",
+    "@types/mocha": "^10.0.7",
     "@types/mongoose": "^5.11.97",
-    "chai": "^4.3.6",
-    "mocha": "^10.0.0",
-    "nyc": "^15.1.0",
-    "rimraf": "^3.0.2",
-    "ts-node": "^10.8.2",
-    "update": "^0.7.4"
+    "chai": "^5.1.1",
+    "mocha": "^10.7.3",
+    "nyc": "^17.0.0",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.8.2"
   }
 }
