@@ -20,7 +20,7 @@
     "express-rate-limit": "^6.11.2",
     "fs": "^0.0.1-security",
     "lodash": "^4.17.21",
-    "mongoose": "^8.6.1"
+    "mongoose": "^8.8.3"
   },
   "devDependencies": {
     "@types/chai": "^4.3.19",
