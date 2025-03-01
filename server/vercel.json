@@ -1,15 +1,9 @@
 {
     "version": 2,
-    "builds": [
-      {
-        "src": "server/package.json",
-        "use": "@vercel/node"
-      }
-    ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "server/src/server.ts" 
+        "dest": "src/server.ts"
       }
     ]
   }
