@@ -8,7 +8,7 @@
     "clean": "rimraf build",
     "build": "npm run clean && tsc",
     "start": "npm run build && node build/src/server.js",
-    "test": "nyc --reporter=text mocha -r ts-node/register test/src/**/*.test.ts"
+    "test": "nyc --reporter=text mocha --require ts-node/register --extension ts 'test/**/*.test.ts' --exit"
   },
   "author": "Agrawal, Shubhankar",
   "license": "ISC",
