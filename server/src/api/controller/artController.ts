@@ -12,7 +12,7 @@ export class ArtController {
     this.router.get("/art-today/:date", this.getArtToday);
   }
 
-  public getArtToday = async (req: Request, res: Response) => {
+  public getArtToday = async (req: Request, res: Response): Promise<any> => {
     return res
       .status(200)
       .json(await this.artService.getArtToday(req.params.date));
