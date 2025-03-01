@@ -1,4 +1,4 @@
-name: MERN Stack
+name: MERN Stack CI/CD
 
 on:
   push:
@@ -7,46 +7,59 @@ on:
     branches: ["main"]
 
 env:
-  CI: false
+  CI: true
 
 jobs:
   build:
-    name: Build
+    name: Build & Test
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [16.x, 18.x]
+        node-version: [18.x, 20.x]  # Updated Node versions
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4  # Updated to latest version
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
+          cache: "npm"
 
-      - name: Run NPM ci
-        run: npm ci
+      - name: Install root dependencies
+        run: npm ci  # Faster and more reliable
 
-      - name: Install dependencies
+      # --- Build & Test Server ---
+      - name: Install Server Dependencies
         run: |
-          npm install
+          cd server
+          npm ci
 
-      - name: Build server
+      - name: Build Server
         run: |
-          cd server/ 
-          npm install
+          cd server
           npm run build
 
-      - name: Build ui
+      - name: Run Server Tests
         run: |
-          cd ui/ 
-          npm install
+          cd server
+          npm test
+
+      # --- Build UI ---
+      - name: Install UI Dependencies
+        run: |
+          cd ui
+          npm ci
+
+      - name: Build UI
+        run: |
+          cd ui
+          npm run build
 
   analyze:
-    name: Analyze
+    name: CodeQL Security Analysis
     runs-on: ubuntu-latest
     permissions:
       actions: read
@@ -56,16 +69,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: ["javascript", "python"]
+        language: ["javascript"]
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v2
+        uses: github/codeql-action/init@v3
         with:
           languages: ${{ matrix.language }}
 
       - name: Autobuild
-        uses: github/codeql-action/autobuild@v2
+        uses: github/codeql-action/autobuild@v3
