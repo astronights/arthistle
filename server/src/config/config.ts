@@ -5,7 +5,7 @@ const config = {
   host: process.env["HOST"] || "0.0.0.0",
   port: parseInt(process.env["PORT"] || "4242"),
   mongo: {
-    uri: `mongodb+srv://e0925482:${process.env["MONGO_PASS"]}@cluster-e0925482.g5ni9qp.mongodb.net/arthistle`
+    uri: process.env["MONGO_URI"]
   },
   art: {
     source: "wiki",
