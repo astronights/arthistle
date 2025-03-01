@@ -18,10 +18,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors({ origin: "*" }));
 app.use("/", router);
 
-app.use(express.static(path.join(__dirname + "../../../../ui/build")));
+// app.use(express.static(path.join(__dirname + "../../../../ui/build")));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "../../../../ui/build/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname + "../public/index.html"));
+// });
 
 export default app;

@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rimraf build",
     "build": "npm run clean && tsc",
-    "start": "npm run build && node build/src/server.js",
+    "start": "npm run build && node build/server.js",
     "test": "nyc --reporter=text ts-mocha --extension ts test/src/util/*.test.ts --exit"
   },
   "author": "Agrawal, Shubhankar",
