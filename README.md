@@ -1,6 +1,9 @@
 # Arthistle
 An Art History guessing game inspired from Wordle to guess a Top 100 Artist from a series of 5 works.
 
+Server: [arthistle-server](https://arthistle-server.netlify.app/art)
+UI: [arthistle-ui]()
+
 ![Gameplay](https://github.com/user-attachments/assets/964b053d-5972-49c2-9e32-4edbd6700eda)
 
 ![Successful Guess](https://github.com/user-attachments/assets/34d33a1e-543a-4de0-8b31-afc5ae0bf671)

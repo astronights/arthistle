@@ -9,6 +9,7 @@ export const getDailyArt = async (date?: string): Promise<artist> => {
     console.log("Cannot fetch for a future date");
     return Promise.reject("Cannot fetch for a future date");
   }
+  
   const response: AxiosResponse = await request(
     "GET",
     `${config.server}/arthistle/art-today/${date}`,
