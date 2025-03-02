@@ -24,7 +24,6 @@ build/Release
 
 #Builds
 build
-server/public
 
 # Dependency directory
 node_modules
