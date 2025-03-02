@@ -10,5 +10,5 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["src", "netlify/functions/index.ts"]
+  "include": ["src", "netlify/functions/api.ts"]
 }
