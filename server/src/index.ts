@@ -20,8 +20,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors({ origin: "*" }));
 app.use("/art", router);
 
-app.listen(config.port, () => {
-  console.log(`Started server at ${config.host}:${config.port}`);
-});
+// app.listen(config.port, () => {
+//   console.log(`Started server at ${config.host}:${config.port}`);
+// });
 
 export const handler = serverless(app);
