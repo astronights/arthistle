@@ -11,4 +11,7 @@ router.get("/status", (req, res) => {
   res.status(200).json("Connected!");
 });
 
+
+router.get('/', (req, res) => { res.status(200).json("Art!") });
+
 export default router;
