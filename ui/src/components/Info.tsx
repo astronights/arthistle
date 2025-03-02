@@ -67,7 +67,7 @@ const Info = () => {
       <Box sx={box_style}>
         <h2>Game</h2>
         <p className="indent">
-          Arthistle (pronounced art-hist-le) is a simple, fun art history
+          Arthistle (pronounced art-his-tle) is a simple, fun art history
           guessing game to figure out an artist from a series of their works. As
           a{" "}
           <a
@@ -111,7 +111,7 @@ const Info = () => {
               <TableRow>
                 <TableCell>Guess</TableCell>
                 <TableCell>Meaning</TableCell>
-                <TableCell>Attempt#</TableCell>
+                <TableCell>Attempt #</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
