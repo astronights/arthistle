@@ -2,7 +2,7 @@
   "name": "arthistle-server",
   "version": "1.1.0",
   "description": "Arthistle Server",
-  "main": "src/index.ts",
+  "main": "index.js",
   "scripts": {
     "clean": "rimraf build",
     "build": "npm run clean && tsc",
