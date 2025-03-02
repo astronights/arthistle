@@ -4,9 +4,9 @@
   "description": "Arthistle Server",
   "main": "src/index.ts",
   "scripts": {
-    "clean": "rimraf build",
+    "clean": "rimraf public",
     "build": "npm run clean && tsc",
-    "start": "npm run build && node build/index.js",
+    "start": "npm run build && node public/index.js",
     "test": "nyc --reporter=text ts-mocha --extension ts test/src/util/*.test.ts --exit"
   },
   "author": "Agrawal, Shubhankar",
