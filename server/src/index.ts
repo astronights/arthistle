@@ -1,5 +1,6 @@
 import cors from "cors";
 import express from "express";
+import serverless from "serverless-http";
 import RateLimit from "express-rate-limit";
 
 import router from "./api/router";
@@ -17,10 +18,10 @@ app.use(limiter);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({ origin: "*" }));
-app.use("/", router);
+app.use("/art", router);
 
 app.listen(config.port, () => {
   console.log(`Started server at ${config.host}:${config.port}`);
 });
 
-module.exports = app;
+export const handler = serverless(app);
