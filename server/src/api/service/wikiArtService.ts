@@ -37,7 +37,13 @@ export class WikiArtService extends BaseArtService {
   private getArtByArtist = async (artist_id: string): Promise<artist> => {
     const url =
       config.art.wiki.host.public + `/PaintingsByArtist?id=${artist_id}`;
-    const response: AxiosResponse = await axios.get(url).catch((error) => {
+    const response: AxiosResponse = await axios.get(url, {
+      headers: {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36",
+        "Referer": "https://www.wikiart.org/",
+        "Accept-Language": "en-US,en;q=0.9",
+      },
+    }).catch((error) => {
       console.log(error);
       return Promise.reject("WikiArt Error");
     });
