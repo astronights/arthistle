@@ -37,8 +37,7 @@ export class WikiArtService extends BaseArtService {
   private getArtByArtist = async (artist_id: string): Promise<artist> => {
     const url =
       config.art.wiki.host.public + `/PaintingsByArtist?id=${artist_id}`;
-    const proxyUrl = "https://corsproxy.io/?";
-    const response: AxiosResponse = await axios.get(proxyUrl + encodeURIComponent(url), {
+    const response: AxiosResponse = await axios.get(url, {
       headers: {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36",
         "Referer": "https://www.wikiart.org/",
