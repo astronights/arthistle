@@ -24,7 +24,7 @@ const config = {
     },
     wiki: {
       host: {
-        public: "https://www.wikiart.org/en/Api/2",
+        public: "https://www.wikiart.org/en/App" //Api/2",
         json: "https://www.wikiart.org/en/popular-paintings?json=1",
       },
       api: {

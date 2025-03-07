@@ -31,17 +31,13 @@ export class WikiArtService extends BaseArtService {
   private generateDailyArt = async (): Promise<artist> => {
     const a_ids = Object.keys(top_100_artists);
     const random_aid = a_ids[Math.floor(Math.random() * a_ids.length)];
-    return this.getArtByArtist(random_aid);
+    return this.getArtByArtist(top_100_artists[random_aid].artistUrl);
   };
 
   private getArtByArtist = async (artist_id: string): Promise<artist> => {
     const url =
-      config.art.wiki.host.public + `/PaintingsByArtist?id=${artist_id}`;
-    const response: AxiosResponse = await axios.get(url, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).catch((error) => {
+      config.art.wiki.host.public + `/Painting/PaintingsByArtist?artistUrl=${artist_id}`;
+    const response: AxiosResponse = await axios.get(url).catch((error) => {
       console.log(error);
       return Promise.reject("WikiArt Error");
     });
