@@ -1,13 +1,15 @@
 import _ from "lodash";
-import axios, { AxiosResponse } from "axios";
 import config from "../../config/config";
 import Artist, { art, artist } from "../../model/artist";
 import { BaseArtService } from "./baseArtService";
 import top_100_artists from "../../data/wiki_top_100_artists.json";
+import paintings_by_artist from "../../data/wiki_paintings_by_artist.json";
 import { getLocalDate, getLocalDateTomorrow } from "../../util/dateUtil";
 
-export class WikiArtService extends BaseArtService {
+export class LocalArtService extends BaseArtService {
   top_artists: { [key: string]: any } = top_100_artists;
+  works_by_artists: { [key: string]: any } = paintings_by_artist;
+
   public getArtToday = async (date?: string): Promise<artist> => {
     const localDate =
       !date || date > getLocalDateTomorrow() || date < config.art.inception
@@ -35,20 +37,9 @@ export class WikiArtService extends BaseArtService {
   };
 
   private getArtByArtist = async (artist_id: string): Promise<artist> => {
-    const url =
-      config.art.wiki.host.public + `/PaintingsByArtist?id=${artist_id}`;
-    const response: AxiosResponse = await axios.get(url).catch((error) => {
-      console.log(error);
-      return Promise.reject("WikiArt Error");
-    });
-    let art = _.sampleSize(response.data.data, 5).map((work) => {
-      return <art>{
-        _id: work.id,
-        name: work.title,
-        year: work.year,
-        url: work.image,
-      };
-    });
+    const works = this.works_by_artists[artist_id];
+    console.log(works);
+    let art = _.sampleSize(works, 5).map((work) => <art>work);
     console.log(this.top_artists[artist_id]);
     let dailyArt = new Artist({
       _id: artist_id,

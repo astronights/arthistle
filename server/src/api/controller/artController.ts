@@ -1,7 +1,7 @@
 import { Request, Response, Router } from "express";
 import { BaseArtService } from "../service/baseArtService";
 import config from "../../config/config";
-import { WikiArtService } from "../service/wikiArtService";
+import { LocalArtService } from "../service/localArtService";
 
 export class ArtController {
   router = Router();
@@ -20,8 +20,8 @@ export class ArtController {
 
   private getArtService = (): BaseArtService => {
     const serviceName = config.art.source;
-    if (serviceName == "wiki") {
-      return new WikiArtService();
+    if (serviceName == "local") {
+      return new LocalArtService();
     } else {
       console.log("No artService specified in config");
       return new BaseArtService();

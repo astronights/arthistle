@@ -8,7 +8,7 @@ const config = {
     uri: process.env["MONGO_URI"]
   },
   art: {
-    source: "wiki",
+    source: "local",
     inception: "2024-07-01",
     met: {
       host: "https://collectionapi.metmuseum.org",
@@ -24,7 +24,7 @@ const config = {
     },
     wiki: {
       host: {
-        public: "https://www.wikiart.org/en/App", //Api/2",
+        public: "https://www.wikiart.org/en/Api/2",
         json: "https://www.wikiart.org/en/popular-paintings?json=1",
       },
       api: {
