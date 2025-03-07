@@ -41,6 +41,7 @@ export class WikiArtService extends BaseArtService {
       headers: {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36",
         "Referer": "https://www.wikiart.org/",
+        "Accept":  "application/json",//json
         "Accept-Language": "en-US,en;q=0.9",
       },
     }).catch((error) => {
