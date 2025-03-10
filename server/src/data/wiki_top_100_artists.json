@@ -1,396 +1,402 @@
 {
-  "57726d85edc2cb3880b48ccd": {
-    "artistName": "Leonardo da Vinci",
-    "artistUrl": "leonardo-da-vinci"
-  },
-  "57726d82edc2cb3880b486a0": {
-    "artistName": "Vincent van Gogh",
-    "artistUrl": "vincent-van-gogh"
-  },
-  "57726d86edc2cb3880b48f5d": {
-    "artistName": "Henri de Toulouse-Lautrec",
-    "artistUrl": "henri-de-toulouse-lautrec"
-  },
-  "57726d7dedc2cb3880b47c88": {
-    "artistName": "Sandro Botticelli",
-    "artistUrl": "sandro-botticelli"
-  },
-  "57726d83edc2cb3880b487fe": {
-    "artistName": "Raphael",
-    "artistUrl": "raphael"
-  },
-  "57726d83edc2cb3880b488f1": {
-    "artistName": "Claude Monet",
-    "artistUrl": "claude-monet"
-  },
-  "57726d7bedc2cb3880b47ad4": {
-    "artistName": "Piet Mondrian",
-    "artistUrl": "piet-mondrian"
-  },
-  "57726d7eedc2cb3880b47e13": {
-    "artistName": "Gustav Klimt",
-    "artistUrl": "gustav-klimt"
-  },
-  "57726d84edc2cb3880b48a5b": {
-    "artistName": "Paul Cezanne",
-    "artistUrl": "paul-cezanne"
-  },
-  "57726d85edc2cb3880b48df8": {
-    "artistName": "Alphonse Mucha",
-    "artistUrl": "alphonse-mucha"
-  },
-  "57726d7eedc2cb3880b47e5b": {
-    "artistName": "Edouard Manet",
-    "artistUrl": "edouard-manet"
-  },
-  "57726d7fedc2cb3880b481c6": {
-    "artistName": "Hieronymus Bosch",
-    "artistUrl": "hieronymus-bosch"
-  },
-  "57726d82edc2cb3880b48668": {
-    "artistName": "M.C. Escher",
-    "artistUrl": "m-c-escher"
-  },
-  "57726d7dedc2cb3880b47cd4": {
-    "artistName": "Amedeo Modigliani",
-    "artistUrl": "amedeo-modigliani"
-  },
-  "57726d7dedc2cb3880b47cb0": {
-    "artistName": "Wassily Kandinsky",
-    "artistUrl": "wassily-kandinsky"
-  },
-  "57726d83edc2cb3880b489b9": {
-    "artistName": "Edgar Degas",
-    "artistUrl": "edgar-degas"
-  },
-  "57726d86edc2cb3880b490ab": {
-    "artistName": "Lucian Freud",
-    "artistUrl": "lucian-freud"
-  },
-  "57726d7eedc2cb3880b47e3f": {
-    "artistName": "Gustave Courbet",
-    "artistUrl": "gustave-courbet"
-  },
-  "57726d86edc2cb3880b49119": {
-    "artistName": "Egon Schiele",
-    "artistUrl": "egon-schiele"
-  },
-  "57726d87edc2cb3880b49321": {
-    "artistName": "Edward Hopper",
-    "artistUrl": "edward-hopper"
-  },
-  "57726d7bedc2cb3880b47a89": {
-    "artistName": "Edvard Munch",
-    "artistUrl": "edvard-munch"
-  },
-  "57726d86edc2cb3880b49101": {
-    "artistName": "William-Adolphe Bouguereau",
-    "artistUrl": "william-adolphe-bouguereau"
-  },
-  "57726d81edc2cb3880b483ee": {
-    "artistName": "Paul Klee",
-    "artistUrl": "paul-klee"
-  },
-  "57726d84edc2cb3880b48c21": {
-    "artistName": "Katsushika Hokusai",
-    "artistUrl": "katsushika-hokusai"
-  },
-  "57726d7cedc2cb3880b47b32": {
-    "artistName": "Pieter Bruegel the Elder",
-    "artistUrl": "pieter-bruegel-the-elder"
-  },
-  "57726d7cedc2cb3880b47baa": {
-    "artistName": "Eugene Delacroix",
-    "artistUrl": "eugene-delacroix"
-  },
-  "57726d80edc2cb3880b482e1": {
-    "artistName": "Georges Seurat",
-    "artistUrl": "georges-seurat"
-  },
-  "57726d86edc2cb3880b48f87": {
-    "artistName": "Johannes Vermeer",
-    "artistUrl": "johannes-vermeer"
-  },
-  "57726d87edc2cb3880b491d5": {
-    "artistName": "Robert Delaunay",
-    "artistUrl": "robert-delaunay"
-  },
-  "57726d7fedc2cb3880b480ca": {
-    "artistName": "Francisco Goya",
-    "artistUrl": "francisco-goya"
-  },
-  "57726d84edc2cb3880b48b73": {
-    "artistName": "Rembrandt",
-    "artistUrl": "rembrandt"
-  },
-  "57726d8aedc2cb3880b498e3": {
-    "artistName": "Norman Rockwell",
-    "artistUrl": "norman-rockwell"
-  },
-  "57726d7eedc2cb3880b47f24": {
-    "artistName": "William Blake",
-    "artistUrl": "william-blake"
-  },
-  "57726d7dedc2cb3880b47d2a": {
-    "artistName": "Jean-Francois Millet",
-    "artistUrl": "jean-francois-millet"
-  },
-  "57726d8bedc2cb3880b49b4c": {
-    "artistName": "Octavio Ocampo",
-    "artistUrl": "octavio-ocampo"
-  },
-  "57726d81edc2cb3880b48481": {
-    "artistName": "Gustave Dore",
-    "artistUrl": "gustave-dore"
-  },
-  "57726d86edc2cb3880b49037": {
-    "artistName": "Georgia O'Keeffe",
-    "artistUrl": "georgia-o-keeffe"
-  },
-  "57726d88edc2cb3880b495bf": {
-    "artistName": "Paul Signac",
-    "artistUrl": "paul-signac"
-  },
-  "57726d86edc2cb3880b490e9": {
-    "artistName": "Guido Reni",
-    "artistUrl": "guido-reni"
-  },
-  "57726d7bedc2cb3880b47a39": {
-    "artistName": "Giuseppe Arcimboldo",
-    "artistUrl": "giuseppe-arcimboldo"
-  },
-  "57726d86edc2cb3880b48f9f": {
-    "artistName": "Hans Holbein the Younger",
-    "artistUrl": "hans-holbein-the-younger"
-  },
-  "57726d7fedc2cb3880b481f6": {
-    "artistName": "Honore Daumier",
-    "artistUrl": "honore-daumier"
-  },
-  "57726d80edc2cb3880b48323": {
-    "artistName": "Jan van Eyck",
-    "artistUrl": "jan-van-eyck"
-  },
-  "57726d87edc2cb3880b49447": {
-    "artistName": "John Everett Millais",
-    "artistUrl": "john-everett-millais"
-  },
-  "57726d84edc2cb3880b48b4f": {
-    "artistName": "Kazimir Malevich",
-    "artistUrl": "kazimir-malevich"
-  },
-  "57726d8dedc2cb3880b49f14": {
-    "artistName": "El Lissitzky",
-    "artistUrl": "el-lissitzky"
-  },
-  "57726d89edc2cb3880b49827": {
-    "artistName": "Aubrey Beardsley",
-    "artistUrl": "aubrey-beardsley"
-  },
-  "57726d7dedc2cb3880b47c98": {
-    "artistName": "Francois Boucher",
-    "artistUrl": "francois-boucher"
-  },
-  "57726d7dedc2cb3880b47d76": {
-    "artistName": "Paul Gauguin",
-    "artistUrl": "paul-gauguin"
-  },
-  "57726d7cedc2cb3880b47b1a": {
-    "artistName": "Caravaggio",
-    "artistUrl": "caravaggio"
-  },
-  "57726d7eedc2cb3880b47f72": {
-    "artistName": "Mikalojus Konstantinas Ciurlionis",
-    "artistUrl": "mikalojus-ciurlionis"
-  },
-  "57726d90edc2cb3880b4a580": {
-    "artistName": "Auguste Rodin",
-    "artistUrl": "auguste-rodin"
-  },
-  "57726d7eedc2cb3880b47ed8": { "artistName": "Giotto", "artistUrl": "giotto" },
-  "57726d80edc2cb3880b48261": {
-    "artistName": "Ivan Aivazovsky",
-    "artistUrl": "ivan-aivazovsky"
-  },
-  "57726d7eedc2cb3880b47df9": {
-    "artistName": "Henri Rousseau",
-    "artistUrl": "henri-rousseau"
-  },
-  "57726d84edc2cb3880b48a2b": {
-    "artistName": "Sir Lawrence Alma-Tadema",
-    "artistUrl": "sir-lawrence-alma-tadema"
-  },
-  "57726d84edc2cb3880b48b25": {
-    "artistName": "Pierre-Auguste Renoir",
-    "artistUrl": "pierre-auguste-renoir"
-  },
-  "57726d88edc2cb3880b49573": {
-    "artistName": "J.M.W. Turner",
-    "artistUrl": "william-turner"
-  },
-  "57726d7cedc2cb3880b47bc2": {
-    "artistName": "John William Waterhouse",
-    "artistUrl": "john-william-waterhouse"
-  },
-  "57726d99edc2cb3880b4b636": {
-    "artistName": "Emil Nolde",
-    "artistUrl": "emil-nolde"
-  },
-  "57726d7dedc2cb3880b47cf2": {
-    "artistName": "Cimabue",
-    "artistUrl": "cimabue"
-  },
-  "57726d81edc2cb3880b48539": {
-    "artistName": "Ivan Bilibin",
-    "artistUrl": "ivan-bilibin"
-  },
-  "57726d81edc2cb3880b48431": {
-    "artistName": "Albrecht Durer",
-    "artistUrl": "albrecht-durer"
-  },
-  "57726d81edc2cb3880b483d2": {
-    "artistName": "Camille Corot",
-    "artistUrl": "camille-corot"
-  },
-  "57726d85edc2cb3880b48e91": {
-    "artistName": "Ivan Shishkin",
-    "artistUrl": "ivan-shishkin"
-  },
-  "57726d89edc2cb3880b497dd": {
-    "artistName": "Balthus",
-    "artistUrl": "balthus"
-  },
-  "57726d7fedc2cb3880b4805e": {
-    "artistName": "Michelangelo",
-    "artistUrl": "michelangelo"
-  },
-  "57726d7eedc2cb3880b47e9c": {
-    "artistName": "Jean-Honore Fragonard",
-    "artistUrl": "jean-honore-fragonard"
-  },
-  "57726d88edc2cb3880b4947f": {
-    "artistName": "Jose Clemente Orozco",
-    "artistUrl": "jose-clemente-orozco"
-  },
-  "57726d8dedc2cb3880b49f94": {
-    "artistName": "Ferdinand Hodler",
-    "artistUrl": "ferdinand-hodler"
-  },
-  "57726d8bedc2cb3880b49ba8": {
-    "artistName": "Grandma Moses",
-    "artistUrl": "grandma-moses"
-  },
-  "57726d97edc2cb3880b4b0fc": {
-    "artistName": "Caspar David Friedrich",
-    "artistUrl": "caspar-david-friedrich"
-  },
-  "57726d86edc2cb3880b49131": {
-    "artistName": "Paolo Veronese",
-    "artistUrl": "paolo-veronese"
-  },
-  "57726d84edc2cb3880b48a43": {
-    "artistName": "Ilya Repin",
-    "artistUrl": "ilya-repin"
-  },
-  "57726d81edc2cb3880b483bc": {
-    "artistName": "Masaccio",
-    "artistUrl": "masaccio"
-  },
-  "57726d83edc2cb3880b487e0": {
-    "artistName": "Isaac Levitan",
-    "artistUrl": "isaac-levitan"
-  },
-  "57726d7dedc2cb3880b47d5e": {
-    "artistName": "Mary Cassatt",
-    "artistUrl": "mary-cassatt"
-  },
-  "57726d9bedc2cb3880b4b8b8": {
-    "artistName": "Fernando Botero",
-    "artistUrl": "fernando-botero"
-  },
-  "57726d88edc2cb3880b4962f": {
-    "artistName": "Tintoretto",
-    "artistUrl": "tintoretto"
-  },
-  "57726d7dedc2cb3880b47da2": {
-    "artistName": "El Greco",
-    "artistUrl": "el-greco"
-  },
-  "57726d82edc2cb3880b48710": {
-    "artistName": "Juan Gris",
-    "artistUrl": "juan-gris"
-  },
-  "57726d7bedc2cb3880b479f1": {
-    "artistName": "Friedensreich Hundertwasser",
-    "artistUrl": "friedensreich-hundertwasser"
-  },
-  "57726d80edc2cb3880b482a5": {
-    "artistName": "Jacques-Louis David",
-    "artistUrl": "jacques-louis-david"
-  },
-  "57726d8aedc2cb3880b499e5": {
-    "artistName": "Robert Campin",
-    "artistUrl": "robert-campin"
-  },
-  "57726d8dedc2cb3880b49fac": {
-    "artistName": "Jeff Koons",
-    "artistUrl": "jeff-koons"
-  },
-  "57726d7fedc2cb3880b48098": {
-    "artistName": "Jean Auguste Dominique Ingres",
-    "artistUrl": "jean-auguste-dominique-ingres"
-  },
-  "57726d86edc2cb3880b48ffd": {
-    "artistName": "Cy Twombly",
-    "artistUrl": "cy-twombly"
-  },
-  "57726d85edc2cb3880b48ec1": {
-    "artistName": "Diego Velazquez",
-    "artistUrl": "diego-velazquez"
-  },
-  "57726d7aedc2cb3880b479c7": {
-    "artistName": "Giorgione",
-    "artistUrl": "giorgione"
-  },
-  "57726d85edc2cb3880b48ea9": {
-    "artistName": "Chaim Soutine",
-    "artistUrl": "chaim-soutine"
-  },
-  "57726d84edc2cb3880b48c9b": { "artistName": "Titian", "artistUrl": "titian" },
-  "57726dacedc2cb3880b4d556": {
-    "artistName": "John Collier",
-    "artistUrl": "john-collier"
-  },
-  "57726d80edc2cb3880b48351": {
-    "artistName": "Paolo Uccello",
-    "artistUrl": "paolo-uccello"
-  },
-  "57726d82edc2cb3880b486f0": {
-    "artistName": "Parmigianino",
-    "artistUrl": "parmigianino"
-  },
-  "57726d88edc2cb3880b49467": {
-    "artistName": "Gustave Moreau",
-    "artistUrl": "gustave-moreau"
-  },
-  "57726d8fedc2cb3880b4a3f3": {
-    "artistName": "Umberto Boccioni",
-    "artistUrl": "umberto-boccioni"
-  },
-  "57726d8aedc2cb3880b499bd": {
-    "artistName": "Bernardo Bellotto",
-    "artistUrl": "bernardo-bellotto"
-  },
-  "57726d86edc2cb3880b4919b": {
-    "artistName": "Gustave Caillebotte",
-    "artistUrl": "gustave-caillebotte"
-  },
-  "57726d7dedc2cb3880b47d0a": {
-    "artistName": "Nicolas Poussin",
-    "artistUrl": "nicolas-poussin"
-  },
-  "57726d85edc2cb3880b48cef": {
-    "artistName": "Nicholas Roerich",
-    "artistUrl": "nicholas-roerich"
-  }
+    "57726d85edc2cb3880b48df8": {
+        "artistName": "Alphonse Mucha",
+        "artistUrl": "alphonse-mucha"
+    },
+    "57726d7eedc2cb3880b47e13": {
+        "artistName": "Gustav Klimt",
+        "artistUrl": "gustav-klimt"
+    },
+    "57726d7dedc2cb3880b47cb0": {
+        "artistName": "Wassily Kandinsky",
+        "artistUrl": "wassily-kandinsky"
+    },
+    "57726d7cedc2cb3880b47b32": {
+        "artistName": "Pieter Bruegel the Elder",
+        "artistUrl": "pieter-bruegel-the-elder"
+    },
+    "57726d7eedc2cb3880b47e5b": {
+        "artistName": "Edouard Manet",
+        "artistUrl": "edouard-manet"
+    },
+    "57726d7bedc2cb3880b47ad4": {
+        "artistName": "Piet Mondrian",
+        "artistUrl": "piet-mondrian"
+    },
+    "57726d83edc2cb3880b488f1": {
+        "artistName": "Claude Monet",
+        "artistUrl": "claude-monet"
+    },
+    "57726d85edc2cb3880b48ccd": {
+        "artistName": "Leonardo da Vinci",
+        "artistUrl": "leonardo-da-vinci"
+    },
+    "57726d83edc2cb3880b489b9": {
+        "artistName": "Edgar Degas",
+        "artistUrl": "edgar-degas"
+    },
+    "57726d7bedc2cb3880b47a89": {
+        "artistName": "Edvard Munch",
+        "artistUrl": "edvard-munch"
+    },
+    "57726d86edc2cb3880b490ab": {
+        "artistName": "Lucian Freud",
+        "artistUrl": "lucian-freud"
+    },
+    "57726d82edc2cb3880b486a0": {
+        "artistName": "Vincent van Gogh",
+        "artistUrl": "vincent-van-gogh"
+    },
+    "57726d83edc2cb3880b489d8": {
+        "artistName": "Henri Matisse",
+        "artistUrl": "henri-matisse"
+    },
+    "57726d7bedc2cb3880b47a63": {
+        "artistName": "Frida Kahlo",
+        "artistUrl": "frida-kahlo"
+    },
+    "57726d8bedc2cb3880b49b4c": {
+        "artistName": "Octavio Ocampo",
+        "artistUrl": "octavio-ocampo"
+    },
+    "57726d81edc2cb3880b483ee": {
+        "artistName": "Paul Klee",
+        "artistUrl": "paul-klee"
+    },
+    "57726d86edc2cb3880b49101": {
+        "artistName": "William-Adolphe Bouguereau",
+        "artistUrl": "william-adolphe-bouguereau"
+    },
+    "57726d87edc2cb3880b49321": {
+        "artistName": "Edward Hopper",
+        "artistUrl": "edward-hopper"
+    },
+    "57726d7dedc2cb3880b47cd4": {
+        "artistName": "Amedeo Modigliani",
+        "artistUrl": "amedeo-modigliani"
+    },
+    "57726d82edc2cb3880b48668": {
+        "artistName": "M.C. Escher",
+        "artistUrl": "m-c-escher"
+    },
+    "57726d7fedc2cb3880b480ca": {
+        "artistName": "Francisco Goya",
+        "artistUrl": "francisco-goya"
+    },
+    "57726d7eedc2cb3880b47f24": {
+        "artistName": "William Blake",
+        "artistUrl": "william-blake"
+    },
+    "57726d7fedc2cb3880b481c6": {
+        "artistName": "Hieronymus Bosch",
+        "artistUrl": "hieronymus-bosch"
+    },
+    "57726d7dedc2cb3880b47c88": {
+        "artistName": "Sandro Botticelli",
+        "artistUrl": "sandro-botticelli"
+    },
+    "57726d81edc2cb3880b48481": {
+        "artistName": "Gustave Dore",
+        "artistUrl": "gustave-dore"
+    },
+    "57726d84edc2cb3880b48a2b": {
+        "artistName": "Sir Lawrence Alma-Tadema",
+        "artistUrl": "sir-lawrence-alma-tadema"
+    },
+    "57726d7cedc2cb3880b47b1a": {
+        "artistName": "Caravaggio",
+        "artistUrl": "caravaggio"
+    },
+    "57726d86edc2cb3880b49037": {
+        "artistName": "Georgia O'Keeffe",
+        "artistUrl": "georgia-o-keeffe"
+    },
+    "57726d7eedc2cb3880b47e3f": {
+        "artistName": "Gustave Courbet",
+        "artistUrl": "gustave-courbet"
+    },
+    "57726d7cedc2cb3880b47bc2": {
+        "artistName": "John William Waterhouse",
+        "artistUrl": "john-william-waterhouse"
+    },
+    "57726d89edc2cb3880b497dd": {
+        "artistName": "Balthus",
+        "artistUrl": "balthus"
+    },
+    "57726d7bedc2cb3880b47a39": {
+        "artistName": "Giuseppe Arcimboldo",
+        "artistUrl": "giuseppe-arcimboldo"
+    },
+    "57726d7cedc2cb3880b47baa": {
+        "artistName": "Eugene Delacroix",
+        "artistUrl": "eugene-delacroix"
+    },
+    "57726d86edc2cb3880b49119": {
+        "artistName": "Egon Schiele",
+        "artistUrl": "egon-schiele"
+    },
+    "57726d7dedc2cb3880b47d76": {
+        "artistName": "Paul Gauguin",
+        "artistUrl": "paul-gauguin"
+    },
+    "57726d8aedc2cb3880b498e3": {
+        "artistName": "Norman Rockwell",
+        "artistUrl": "norman-rockwell"
+    },
+    "57726d7eedc2cb3880b47df9": {
+        "artistName": "Henri Rousseau",
+        "artistUrl": "henri-rousseau"
+    },
+    "57726d84edc2cb3880b48b73": {
+        "artistName": "Rembrandt",
+        "artistUrl": "rembrandt"
+    },
+    "57726d84edc2cb3880b48a5b": {
+        "artistName": "Paul Cezanne",
+        "artistUrl": "paul-cezanne"
+    },
+    "57726d84edc2cb3880b48c21": {
+        "artistName": "Katsushika Hokusai",
+        "artistUrl": "katsushika-hokusai"
+    },
+    "57726d86edc2cb3880b48f5d": {
+        "artistName": "Henri de Toulouse-Lautrec",
+        "artistUrl": "henri-de-toulouse-lautrec"
+    },
+    "57726d7eedc2cb3880b47ed8": {
+        "artistName": "Giotto",
+        "artistUrl": "giotto"
+    },
+    "57726d85edc2cb3880b48ec1": {
+        "artistName": "Diego Velazquez",
+        "artistUrl": "diego-velazquez"
+    },
+    "57726d86edc2cb3880b48f87": {
+        "artistName": "Johannes Vermeer",
+        "artistUrl": "johannes-vermeer"
+    },
+    "57726d81edc2cb3880b48431": {
+        "artistName": "Albrecht Durer",
+        "artistUrl": "albrecht-durer"
+    },
+    "57726d7fedc2cb3880b4805e": {
+        "artistName": "Michelangelo",
+        "artistUrl": "michelangelo"
+    },
+    "57726d8bedc2cb3880b49ba8": {
+        "artistName": "Grandma Moses",
+        "artistUrl": "grandma-moses"
+    },
+    "57726d7fedc2cb3880b48098": {
+        "artistName": "Jean Auguste Dominique Ingres",
+        "artistUrl": "jean-auguste-dominique-ingres"
+    },
+    "57726d84edc2cb3880b48b25": {
+        "artistName": "Pierre-Auguste Renoir",
+        "artistUrl": "pierre-auguste-renoir"
+    },
+    "57726d85edc2cb3880b48e91": {
+        "artistName": "Ivan Shishkin",
+        "artistUrl": "ivan-shishkin"
+    },
+    "57726d80edc2cb3880b48261": {
+        "artistName": "Ivan Aivazovsky",
+        "artistUrl": "ivan-aivazovsky"
+    },
+    "57726d7cedc2cb3880b47bda": {
+        "artistName": "Leon Bakst",
+        "artistUrl": "leon-bakst"
+    },
+    "57726d80edc2cb3880b482a5": {
+        "artistName": "Jacques-Louis David",
+        "artistUrl": "jacques-louis-david"
+    },
+    "57726d8eedc2cb3880b4a0e8": {
+        "artistName": "Andre Derain",
+        "artistUrl": "andre-derain"
+    },
+    "57726d87edc2cb3880b491d5": {
+        "artistName": "Robert Delaunay",
+        "artistUrl": "robert-delaunay"
+    },
+    "57726d7dedc2cb3880b47da2": {
+        "artistName": "El Greco",
+        "artistUrl": "el-greco"
+    },
+    "57726d7dedc2cb3880b47d0a": {
+        "artistName": "Nicolas Poussin",
+        "artistUrl": "nicolas-poussin"
+    },
+    "57726d88edc2cb3880b4947f": {
+        "artistName": "Jose Clemente Orozco",
+        "artistUrl": "jose-clemente-orozco"
+    },
+    "57726d7fedc2cb3880b481f6": {
+        "artistName": "Honore Daumier",
+        "artistUrl": "honore-daumier"
+    },
+    "57726d80edc2cb3880b48323": {
+        "artistName": "Jan van Eyck",
+        "artistUrl": "jan-van-eyck"
+    },
+    "57726d80edc2cb3880b482e1": {
+        "artistName": "Georges Seurat",
+        "artistUrl": "georges-seurat"
+    },
+    "57726d7bedc2cb3880b47aec": {
+        "artistName": "Correggio",
+        "artistUrl": "correggio"
+    },
+    "57726d7dedc2cb3880b47d2a": {
+        "artistName": "Jean-Francois Millet",
+        "artistUrl": "jean-francois-millet"
+    },
+    "57726d81edc2cb3880b483a0": {
+        "artistName": "Bartolome Esteban Murillo",
+        "artistUrl": "bartolome-esteban-murillo"
+    },
+    "57726d88edc2cb3880b49573": {
+        "artistName": "J.M.W. Turner",
+        "artistUrl": "william-turner"
+    },
+    "57726d81edc2cb3880b48539": {
+        "artistName": "Ivan Bilibin",
+        "artistUrl": "ivan-bilibin"
+    },
+    "57726d87edc2cb3880b49447": {
+        "artistName": "John Everett Millais",
+        "artistUrl": "john-everett-millais"
+    },
+    "57726d84edc2cb3880b48bdd": {
+        "artistName": "Pierre Bonnard",
+        "artistUrl": "pierre-bonnard"
+    },
+    "57726d83edc2cb3880b487e0": {
+        "artistName": "Isaac Levitan",
+        "artistUrl": "isaac-levitan"
+    },
+    "57726d7eedc2cb3880b47e9c": {
+        "artistName": "Jean-Honore Fragonard",
+        "artistUrl": "jean-honore-fragonard"
+    },
+    "57726d82edc2cb3880b48740": {
+        "artistName": "Camille Pissarro",
+        "artistUrl": "camille-pissarro"
+    },
+    "57726d7dedc2cb3880b47d5e": {
+        "artistName": "Mary Cassatt",
+        "artistUrl": "mary-cassatt"
+    },
+    "57726d84edc2cb3880b48c9b": {
+        "artistName": "Titian",
+        "artistUrl": "titian"
+    },
+    "57726d7cedc2cb3880b47c1e": {
+        "artistName": "Giovanni Bellini",
+        "artistUrl": "giovanni-bellini"
+    },
+    "57726d81edc2cb3880b483d2": {
+        "artistName": "Camille Corot",
+        "artistUrl": "camille-corot"
+    },
+    "57726d7dedc2cb3880b47dd6": {
+        "artistName": "John Constable",
+        "artistUrl": "john-constable"
+    },
+    "57726d84edc2cb3880b48b4f": {
+        "artistName": "Kazimir Malevich",
+        "artistUrl": "kazimir-malevich"
+    },
+    "57726d83edc2cb3880b487fe": {
+        "artistName": "Raphael",
+        "artistUrl": "raphael"
+    },
+    "57726d87edc2cb3880b49398": {
+        "artistName": "Kathe Kollwitz",
+        "artistUrl": "kathe-kollwitz"
+    },
+    "57726d7dedc2cb3880b47cf2": {
+        "artistName": "Cimabue",
+        "artistUrl": "cimabue"
+    },
+    "57726d8dedc2cb3880b49f14": {
+        "artistName": "El Lissitzky",
+        "artistUrl": "el-lissitzky"
+    },
+    "57726d7bedc2cb3880b479f1": {
+        "artistName": "Friedensreich Hundertwasser",
+        "artistUrl": "friedensreich-hundertwasser"
+    },
+    "57726d82edc2cb3880b48710": {
+        "artistName": "Juan Gris",
+        "artistUrl": "juan-gris"
+    },
+    "57726d7cedc2cb3880b47c70": {
+        "artistName": "Gian Lorenzo Bernini",
+        "artistUrl": "gian-lorenzo-bernini"
+    },
+    "57726d8fedc2cb3880b4a3f3": {
+        "artistName": "Umberto Boccioni",
+        "artistUrl": "umberto-boccioni"
+    },
+    "57726d84edc2cb3880b48a43": {
+        "artistName": "Ilya Repin",
+        "artistUrl": "ilya-repin"
+    },
+    "57726d80edc2cb3880b48351": {
+        "artistName": "Paolo Uccello",
+        "artistUrl": "paolo-uccello"
+    },
+    "57726d8aedc2cb3880b498fb": {
+        "artistName": "Odilon Redon",
+        "artistUrl": "odilon-redon"
+    },
+    "57726d8fedc2cb3880b4a36f": {
+        "artistName": "Max Beckmann",
+        "artistUrl": "max-beckmann"
+    },
+    "57726d85edc2cb3880b48e4d": {
+        "artistName": "Andrei Rublev",
+        "artistUrl": "andrei-rublev"
+    },
+    "57726d8aedc2cb3880b4995d": {
+        "artistName": "N.C. Wyeth",
+        "artistUrl": "n-c-wyeth"
+    },
+    "57726d99edc2cb3880b4b636": {
+        "artistName": "Emil Nolde",
+        "artistUrl": "emil-nolde"
+    },
+    "57726d89edc2cb3880b49827": {
+        "artistName": "Aubrey Beardsley",
+        "artistUrl": "aubrey-beardsley"
+    },
+    "57726d7cedc2cb3880b47b68": {
+        "artistName": "Rogier van der Weyden",
+        "artistUrl": "rogier-van-der-weyden"
+    },
+    "57726d8dedc2cb3880b49fac": {
+        "artistName": "Jeff Koons",
+        "artistUrl": "jeff-koons"
+    },
+    "57726d7bedc2cb3880b479df": {
+        "artistName": "Arshile Gorky",
+        "artistUrl": "arshile-gorky"
+    },
+    "57726d8dedc2cb3880b49f66": {
+        "artistName": "Franz Marc",
+        "artistUrl": "franz-marc"
+    },
+    "57726d86edc2cb3880b48f9f": {
+        "artistName": "Hans Holbein the Younger",
+        "artistUrl": "hans-holbein-the-younger"
+    },
+    "57726d82edc2cb3880b486f0": {
+        "artistName": "Parmigianino",
+        "artistUrl": "parmigianino"
+    },
+    "57726d88edc2cb3880b49467": {
+        "artistName": "Gustave Moreau",
+        "artistUrl": "gustave-moreau"
+    }
 }
