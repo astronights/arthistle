@@ -83,9 +83,11 @@ const Game = () => {
       artist.name.toLowerCase()
     );
     if (results.length === 0) {
-      completed[activeStep] = true;
-      if (activeStep < gameSize - 1) {
-        setActiveStep(activeStep + 1);
+      const nextStep = completed.findIndex((c: boolean) => !c);
+      completed[nextStep] = true;
+
+      if (nextStep < gameSize - 1) {
+        setActiveStep(nextStep + 1);
       }
     }
     setNames(names.filter((name) => !results.includes(name.toLowerCase())));
