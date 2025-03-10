@@ -37,9 +37,8 @@ export class LocalArtService extends BaseArtService {
   };
 
   private getArtByArtist = async (artist_id: string): Promise<artist> => {
-    const works = this.works_by_artists[artist_id];
-    console.log(works);
-    let art = _.sampleSize(works, 5).map((work) => <art>work);
+    const art = this.works_by_artists[artist_id].reverse();
+    console.log(art);
     console.log(this.top_artists[artist_id]);
     let dailyArt = new Artist({
       _id: artist_id,
