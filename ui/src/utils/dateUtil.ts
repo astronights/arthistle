@@ -15,5 +15,5 @@ export const getNumber = () => {
 
 export const getLocalDate = () => {
   const localDate = new Date();
-  return localDate.toISOString().split("T")[0];
+  return localDate.toLocaleDateString("en-CA");;
 };

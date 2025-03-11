@@ -13,7 +13,7 @@ const ArtList = (props: ArtListProps) => {
       <Box>
         <Stepper nonLinear activeStep={props.curr}>
           {Array.from(Array(props.size).keys()).map((index) => (
-            <Step key={index} completed={props.steps[index]}>
+            <Step key={index} completed={props.steps[index]} active={index === props.curr}>
               <StepButton color="inherit" onClick={props.update(index)} />
             </Step>
           ))}
