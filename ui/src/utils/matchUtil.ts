@@ -1,23 +1,20 @@
 import fuzzy from "fuzzy";
 import { AlertColor } from "@mui/material";
 
-export const regex = /[^a-z]/i;
+export const regex = /[\s,.-]+/;
 
 export const fuzzyMatch = (attempt: string, artist: string) => {
-  if (attempt.length === 0 || artist.length === 0) return [];
-  const artistParts = artist.toLowerCase().split(regex);
+  if (!attempt || !artist) return [];
+
+  const artistParts = artist.toLowerCase().split(regex).filter(Boolean);
+
   return attempt
+    .toLowerCase()
     .split(regex)
-    .map((part: string) => {
-      let words = fuzzy
-        .filter(part.toLowerCase(), artistParts)
-        .map((element: { string: any }) => {
-          if (part.length < 3 && element.string.length > 2 * part.length)
-            return null;
-          return element.string;
-        })
-        .filter((element: any) => element !== null);
-      return [...new Set(words)];
+    .filter(Boolean)
+    .map(part => {
+      const matches = fuzzy.filter(part, artistParts).map(el => el.string);
+      return [...new Set(matches)];
     })
     .flat();
 };
