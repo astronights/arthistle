@@ -1,6 +1,21 @@
 import mongoose from "../db/mongo";
 
-const artSchema = new mongoose.Schema(
+export interface art {
+  _id: string;
+  name: string;
+  year: number;
+  url: string;
+}
+
+export interface artist {
+  _id: string;
+  name: string;
+  url: string;
+  date: string;
+  art: art[];
+}
+
+const artSchema = new mongoose.Schema<art>(
   {
     _id: String,
     name: String,
@@ -9,7 +24,8 @@ const artSchema = new mongoose.Schema(
   },
   { _id: false }
 );
-const artistSchema = new mongoose.Schema(
+
+const artistSchema = new mongoose.Schema<artist>(
   {
     _id: String,
     name: String,
@@ -19,20 +35,5 @@ const artistSchema = new mongoose.Schema(
   },
   { _id: false }
 );
-
-export interface art {
-  _id: string;
-  name: string;
-  year: number;
-  url: string;
-}
-
-export interface artist extends mongoose.Document {
-  _id: string;
-  name: string;
-  url: string;
-  date: string;
-  art: art[];
-}
 
 export default mongoose.model<artist>("artist", artistSchema);
