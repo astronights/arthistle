@@ -9,6 +9,10 @@ import {
   TableRow,
 } from "@mui/material";
 import "../assets/css/page.sass";
+import ArtName from "./gameParts/ArtName";
+import { nameParts } from "../utils/matchUtil";
+
+const example = "Henri de Toulouse-Lautrec";
 
 const Info = () => {
   const box_style = {
@@ -97,9 +101,12 @@ const Info = () => {
           the number of characters and special characters (if any) in the
           artist's name. <br />
           For example, Henri de Toulouse-Lautrec would be reflected as{" "}
-          <span className="mask">Henri</span> <span className="mask">de</span>{" "}
-          <span className="mask">Toulouse</span>-
-          <span className="mask">Lautrec</span>. As guesses are made, parts of
+          <ArtName
+            variant="inline"
+            name={example}
+            names={nameParts(example)}
+          />
+          . As guesses are made, parts of
           the artist's name identified are revealed from the masked text. All
           guesses are validated case insensitive. The words entered are each
           individually matched with each of the parts of the artist's name,

@@ -2,8 +2,42 @@
 
 .art-name
     display: flex
+    flex-wrap: wrap
+    align-items: center
     justify-content: center
+    gap: 0.1em
+    color: colors.$white
+    font-family: var(--font-display)
+    // Each flex item is its own block box, so an inherited text-indent would
+    // pad every separator. Reset it here rather than depend on the caller.
+    text-indent: 0
+
+// The name is the puzzle, so give it the weight of a headline.
+.art-name-hero
     width: var(--game-column)
     max-width: 100%
-    margin: 0.5em auto
-    color: colors.$white
+    margin: 0.75em auto
+    min-height: 2em
+    font-size: 1.5rem
+    letter-spacing: 0.02em
+
+.art-name-inline
+    display: inline-flex
+    font-size: inherit
+    vertical-align: baseline
+
+.name-mask
+    display: inline-flex
+    align-items: center
+    gap: 0.16em
+
+// One tile per hidden letter, so the shape of the name is still readable.
+.name-tile
+    display: inline-block
+    width: 0.6em
+    height: 1em
+    border-radius: 0.12em
+    background-color: colors.$yellow
+
+.name-plain
+    white-space: pre

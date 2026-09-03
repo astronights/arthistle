@@ -197,7 +197,7 @@ const Game = () => {
           />
         </div>
         <div className="text-stuff">
-          <ArtName artist={artist} names={names} />
+          <ArtName name={artist.name} names={names} />
           <ArtInput disabled={done} checkArtist={validateArtist} />
           <ArtGuess name={artist.name} attempts={guesses.attempts} />
         </div>
