@@ -5,7 +5,7 @@
   display: flex
   justify-content: center
   flex-direction: row
-  color: colors.$black
+  color: colors.$text
   font-family: var(--font-display)
   margin: 0
   height: 3em
@@ -22,20 +22,36 @@
         width: 50%
 
 .nav-link
-  color: colors.$white
+  color: colors.$text
   text-decoration: none
-  display: flex
-  padding: 10px
+  display: inline-flex
+  align-items: center
+  // Keeps the tap target at the usual 44px floor.
+  min-height: 2.75rem
+  padding: 0 0.6em
+  border-bottom: 2px solid transparent
 
+  &:hover
+    color: colors.$green
+
+// The current page stays marked so the bar still says where you are.
 .nav-link-active
-    background-color: colors.$green
-    color: colors.$white
-    padding: 0.5em 0.7em 0.5em 0.7em
-    text-decoration-line: none
-    border-radius: 0.5em
+  color: colors.$green
+  border-bottom-color: colors.$green
+
+// The mode switch is an action rather than a link, so it is a button wearing
+// the same clothes.
+.nav-action
+  background: none
+  border: none
+  border-bottom: 2px solid transparent
+  font: inherit
+  cursor: pointer
 
 .app-name
   font-weight: bold
+  letter-spacing: 0.02em
+  padding-left: 0
 
 .space-div
     display: flex

@@ -1,11 +1,17 @@
 import NavBar from "./NavBar";
 import Router from "./Router";
 import "../assets/css/layer.sass";
+import { Mode } from "../config/theme";
 
-const Layer = () => {
+interface LayerProps {
+  mode: Mode;
+  onToggleMode: () => void;
+}
+
+const Layer = (props: LayerProps) => {
   return (
     <div className="layer">
-      <NavBar />
+      <NavBar mode={props.mode} onToggleMode={props.onToggleMode} />
       <Router />
     </div>
   );

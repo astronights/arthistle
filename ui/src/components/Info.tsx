@@ -1,4 +1,4 @@
-import { Alert, Box } from "@mui/material";
+import { Alert, Box, Divider } from "@mui/material";
 import "../assets/css/page.sass";
 import ArtName from "./gameParts/ArtName";
 import { nameParts } from "../utils/matchUtil";
@@ -102,6 +102,7 @@ const Info = () => {
           ))}
         </dl>
       </Box>
+      <Divider className="info-divider" />
       <Box className="info-card">
         <h2>About</h2>
         <p className="prose">

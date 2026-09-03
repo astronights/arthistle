@@ -9,6 +9,10 @@ import "@fontsource/lato/400.css";
 import "@fontsource/lato/700.css";
 import "./assets/css/index.sass";
 import App from "./components/App";
+import { applyMode, getInitialMode } from "./config/theme";
+
+// Settled before the first paint so the page never flashes the wrong palette.
+applyMode(getInitialMode());
 
 const container: HTMLElement = document.getElementById("root")!;
 const root = createRoot(container);
