@@ -2,16 +2,8 @@ import { AppBar, Toolbar } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import "../assets/css/navbar.sass";
 import { getNumber } from "../utils/dateUtil";
-import { Mode } from "../config/theme";
 
-interface NavBarProps {
-  mode: Mode;
-  onToggleMode: () => void;
-}
-
-const NavBar = (props: NavBarProps) => {
-  const toLight = props.mode === "dark";
-
+const NavBar = () => {
   return (
     <AppBar className="nav-bar" position="sticky">
       <Toolbar className="tool-bar">
@@ -27,14 +19,6 @@ const NavBar = (props: NavBarProps) => {
         >
           Info
         </NavLink>
-        <button
-          type="button"
-          className="nav-link nav-action"
-          onClick={props.onToggleMode}
-          aria-label={toLight ? "Switch to light mode" : "Switch to dark mode"}
-        >
-          {toLight ? "Light" : "Dark"}
-        </button>
       </Toolbar>
     </AppBar>
   );
