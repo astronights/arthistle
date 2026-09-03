@@ -31,7 +31,7 @@ export const toClipboard = (
   const stats = [
     `Arthistle #${getNumber()}`,
     emojis.join(""),
-    "Arthistle: https://arthistle.herokuapp.com/",
+    "Arthistle: https://arthistle.netlify.app/",
   ];
   if (navigator.clipboard) {
     navigator.clipboard.writeText(stats.join("\n"));

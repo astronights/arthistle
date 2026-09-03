@@ -13,15 +13,74 @@
     @media screen and (min-width: medium.$desktop)
         padding: 2em 0.5em
 
-.indent
-    text-indent: 5em
+    h1, h2, h3
+        font-family: var(--font-display)
+        font-weight: 600
+        letter-spacing: 0.01em
 
-a
-    color: colors.$white
+    a
+        color: colors.$skyblue
+        text-decoration-thickness: 1px
+        text-underline-offset: 0.15em
 
-main
-    padding: 1rem
-    background-color: colors.$black
-    color: colors.$white
+        &:hover
+            color: colors.$yellow
+
+// Info page sections. Capped so the text keeps a readable measure instead of
+// running the full width of a desktop window.
+.info-card
+    box-sizing: border-box
+    width: 100%
+    max-width: 44em
+    margin: 1.5em auto
+    padding: 1.5em 1.75em
+    border: 1px solid rgba(254, 250, 224, 0.16)
+    border-radius: 0.5em
+    background-color: colors.$slate
+
+    h2
+        margin: 0 0 0.6em 0
+
+.prose
+    max-width: 70ch
+    margin: 0 0 1em 0
+    line-height: 1.7
+
+    &:last-child
+        margin-bottom: 0
+
+.not-found
+    justify-content: center
+    text-align: center
+    gap: 0.5em
+
+// Guess guide: a stack on a phone, marker beside meaning from tablet up.
+.guide
+    margin: 0.5em 0 0 0
+
+.guide-row
     display: flex
-    flex-grow: 1
+    flex-direction: column
+    gap: 0.4em
+    padding: 0.9em 0
+    border-top: 1px solid rgba(254, 250, 224, 0.14)
+    @media screen and (min-width: medium.$tablet)
+        flex-direction: row
+        align-items: center
+        gap: 1.25em
+
+.guide-marker
+    flex: 0 0 auto
+    @media screen and (min-width: medium.$tablet)
+        width: 11em
+
+.guide-detail
+    display: flex
+    flex-direction: column
+    gap: 0.15em
+    margin: 0
+    line-height: 1.6
+
+.guide-attempt
+    color: colors.$skyblue
+    font-size: 0.9em

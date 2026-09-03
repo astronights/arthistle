@@ -84,4 +84,6 @@ export const isAnswer = (attempt: string, artist: string): number => {
   return 2;
 };
 
-export const severities: AlertColor[] = ["warning", "error", "info", "success"];
+// Indexed by the result of isAnswer, which is only ever 1, 2 or 3. The first
+// slot is never read; it is kept so the indices line up.
+export const severities: AlertColor[] = ["error", "error", "info", "success"];

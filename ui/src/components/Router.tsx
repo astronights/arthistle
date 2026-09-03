@@ -1,6 +1,6 @@
 import React from "react";
 import Game from "./Game";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import Info from "./Info";
 import "../assets/css/page.sass";
 
@@ -13,8 +13,11 @@ const Router: React.FC = () => {
       <Route
         path="*"
         element={
-          <main>
-            <p>There's nothing here!</p>
+          <main className="page not-found">
+            <h2>There's nothing here</h2>
+            <p>
+              <Link to="/game">Back to today's Arthistle</Link>
+            </p>
           </main>
         }
       />

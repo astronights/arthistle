@@ -1,13 +1,4 @@
-import {
-  Alert,
-  Box,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-} from "@mui/material";
+import { Alert, Box } from "@mui/material";
 import "../assets/css/page.sass";
 import ArtName from "./gameParts/ArtName";
 import { nameParts } from "../utils/matchUtil";
@@ -15,15 +6,6 @@ import { nameParts } from "../utils/matchUtil";
 const example = "Henri de Toulouse-Lautrec";
 
 const Info = () => {
-  const box_style = {
-    width: "inherit",
-    height: "inherit",
-    padding: "1em",
-    border: `0.1em solid #ccc`,
-    borderRadius: "0.5em",
-    margin: "2em",
-  };
-
   const rows = [
     {
       guess: (
@@ -55,22 +37,12 @@ const Info = () => {
         "The string you have entered does not match the artist's name at all, containing no parts of the name.",
       attempt: "Increases by 1",
     },
-    {
-      guess: (
-        <Alert key="warning" severity="warning">
-          Attempt #4
-        </Alert>
-      ),
-      meaning:
-        "There has been an error with the matching process. Please try again.",
-      attempt: "Increases by 1",
-    },
   ];
   return (
     <div className="page">
-      <Box sx={box_style}>
+      <Box className="info-card">
         <h2>Game</h2>
-        <p className="indent">
+        <p className="prose">
           Arthistle (pronounced art-his-tle) is a simple, fun art history
           guessing game to figure out an artist from a series of their works. As
           a{" "}
@@ -83,7 +55,7 @@ const Info = () => {
           </a>{" "}
           spin-off, this game shows works of art progressively through guesses
           as you try to figure out the complete name of the artist. This game is
-          a great way to is a great way to learn about art history. The works
+          a great way to learn about art history. The works
           and artists in this app are chosen from a list of top 100 artists
           collated by{" "}
           <a href="https://www.wikiart.org/" target={"_blank"} rel="noreferrer">
@@ -92,7 +64,7 @@ const Info = () => {
           .
         </p>
         <h2>How To Play</h2>
-        <p className="indent">
+        <p className="prose">
           The aim of the game is to decipher the complete name of an artist
           given five of their works. As you progress through each incorrect
           guess, a new work is revealed. Works that have already been unlocked
@@ -106,41 +78,35 @@ const Info = () => {
             name={example}
             names={nameParts(example)}
           />
-          . As guesses are made, parts of
-          the artist's name identified are revealed from the masked text. All
-          guesses are validated case insensitive. The words entered are each
-          individually matched with each of the parts of the artist's name,
-          ignoring accents and punctuation and allowing for the odd typo in
-          longer words. Guesses are also displayed in a list of
-          attempts with different markers indicating the levels of success with
-          each guess as below:
+          . As guesses are made, parts of the artist's name identified are
+          revealed from the masked text. All guesses are validated case
+          insensitive. The words entered are each individually matched with each
+          of the parts of the artist's name, ignoring accents and punctuation
+          and allowing for the odd typo in longer words. Guesses are also
+          displayed in a list of attempts with different markers indicating the
+          levels of success with each guess as below:
         </p>
-        <TableContainer>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell>Guess</TableCell>
-                <TableCell>Meaning</TableCell>
-                <TableCell>Attempt #</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {rows.map((row, index) => (
-                <TableRow key={index}>
-                  <TableCell>{row.guess}</TableCell>
-                  <TableCell>{row.meaning}</TableCell>
-                  <TableCell>{row.attempt}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+        {/* A three column table made the meaning unreadable on a phone, so
+            the guide reflows into a stack instead of scrolling sideways. */}
+        <dl className="guide">
+          {rows.map((row, index) => (
+            <div className="guide-row" key={index}>
+              <dt className="guide-marker">{row.guess}</dt>
+              <dd className="guide-detail">
+                <span>{row.meaning}</span>
+                <span className="guide-attempt">
+                  Attempt number: {row.attempt.toLowerCase()}
+                </span>
+              </dd>
+            </div>
+          ))}
+        </dl>
       </Box>
-      <Box sx={box_style}>
+      <Box className="info-card">
         <h2>About</h2>
-        <p className="indent">
+        <p className="prose">
           Arthistle is a pet project using the MERN (Mongo, Express, React,
-          Node) stack built on Typescript and deployed on Heroku. Created by an
+          Node) stack built on Typescript and deployed on Netlify. Created by an
           enthusiastic computer science student and a keen data scientist, this
           project is a way to combine my passion of art history and computer
           science skills as I learn the ways around building web applications.

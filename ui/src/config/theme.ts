@@ -70,7 +70,11 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: "50%",
-          padding: "0.35em",
+          // A 23x37 dot is an awkward thing to hit on a phone; 44px is the
+          // usual floor for a touch target.
+          minWidth: "2.75rem",
+          minHeight: "2.75rem",
+          padding: 0,
           "&.Mui-disabled": { opacity: 0.45 },
         },
       },
