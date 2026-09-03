@@ -1,13 +1,17 @@
 @use "colors" as colors
+@use "media" as medium
 
 .page
     display: flex
     justify-content: flex-start
     flex-direction: column
+    align-items: center
     flex-grow: 1
     background-color: colors.$black
     color: colors.$white
     padding: 0.5em
+    @media screen and (min-width: medium.$desktop)
+        padding: 2em 0.5em
 
 .indent
     text-indent: 5em

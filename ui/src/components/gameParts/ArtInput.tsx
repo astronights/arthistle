@@ -54,7 +54,6 @@ const ArtInput = (props: ArtInputProps) => {
             setGameValue(sanitize(e.target.value));
           }}
         />
-        &nbsp;
         <Button
           disabled={props.disabled || gameValue.trim() === ""}
           className="form-button"

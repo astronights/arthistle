@@ -1,12 +1,23 @@
+@use "../colors" as colors
+
+// A fixed square frame: the artwork is contained inside it whatever its shape,
+// so the rest of the game does not move when switching between clues. The mat
+// behind it keeps a wide or tall painting looking mounted rather than cropped.
+// Bounded by the viewport height too, so a tall painting cannot push the guess
+// box off screen.
 .art-image
-    justify-content: center
+    box-sizing: border-box
+    width: min(var(--game-column), 55vh)
+    aspect-ratio: 1
+    margin: 0.5em auto
     display: flex
-    width: 20em
-    height: fit-content
-    margin: 0.5em auto 0.5em auto
+    align-items: center
+    justify-content: center
+    overflow: hidden
+    background-color: colors.$slate
     border: 0.2em solid grey
 
-img
-    display: flex
-    width: inherit
-    height: inherit
+    img
+        max-width: 100%
+        max-height: 100%
+        object-fit: contain

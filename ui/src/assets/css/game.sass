@@ -1,23 +1,29 @@
-@use "colors" as colors
 @use "media" as medium
+
+// Stacked on phones and tablets, artwork beside the guessing side on desktop.
+.content
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    gap: 1em
+    width: 100%
+    @media screen and (min-width: medium.$desktop)
+        flex-direction: row
+        align-items: flex-start
+        justify-content: center
+        gap: 2.5em
 
 .image-stuff
     display: flex
-    justify-content: space-evenly
     flex-direction: column
+    justify-content: flex-start
+    flex: 0 0 auto
 
 .text-stuff
     display: flex
-    justify-content: space-evenly
     flex-direction: column
-
-// Can use this with an overarching div to make components landscape
-.content
-    display: flex
-    justify-content: space-evenly
-    @media screen and (max-width: medium.$tablet)
-        flex-direction: column
-    @media screen and (min-width: medium.$tablet)
-        flex-direction: column
-    @media screen and (min-width: medium.$desktop)
-        flex-direction: row
+    justify-content: flex-start
+    flex: 0 0 auto
+    width: var(--game-column)
+    max-width: 100%

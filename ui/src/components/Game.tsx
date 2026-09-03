@@ -185,20 +185,22 @@ const Game = () => {
         share={share}
       />
 
-      <div className="image-stuff">
-        <ArtImage artist={artist} activeStep={activeStep} />
-        <ArtList
-          size={gameSize}
-          steps={completed}
-          unlocked={Array.from(Array(gameSize).keys()).map(isUnlocked)}
-          update={handleStep}
-          curr={activeStep}
-        />
-      </div>
-      <div className="text-stuff">
-        <ArtName artist={artist} names={names} />
-        <ArtInput disabled={done} checkArtist={validateArtist} />
-        <ArtGuess name={artist.name} attempts={guesses.attempts} />
+      <div className="content">
+        <div className="image-stuff">
+          <ArtImage artist={artist} activeStep={activeStep} />
+          <ArtList
+            size={gameSize}
+            steps={completed}
+            unlocked={Array.from(Array(gameSize).keys()).map(isUnlocked)}
+            update={handleStep}
+            curr={activeStep}
+          />
+        </div>
+        <div className="text-stuff">
+          <ArtName artist={artist} names={names} />
+          <ArtInput disabled={done} checkArtist={validateArtist} />
+          <ArtGuess name={artist.name} attempts={guesses.attempts} />
+        </div>
       </div>
     </div>
   );
