@@ -1,6 +1,7 @@
 import { artist } from "../../types/artist";
 import "../../assets/css/gameParts/ArtName.sass";
 import { Box } from "@mui/material";
+import { splitRegex } from "../../utils/matchUtil";
 
 interface ArtNameProps {
   artist: artist;
@@ -8,25 +9,27 @@ interface ArtNameProps {
 }
 
 const ArtName = (props: ArtNameProps) => {
+  // Split on the same separators the name was broken up with, keeping them so
+  // the name renders exactly as written.
+  const tokens = props.artist.name.split(splitRegex).filter(Boolean);
+  const hidden = new Set(
+    props.names.filter(Boolean).map((name) => name.toLowerCase())
+  );
+
   return (
     <div className="art-name">
       <Box>
-        {props.artist.name.split(/([^a-z])/i).map((word: string) => {
-          let word_key = Math.random().toString(36).slice(2, 7);
-          if (props.names.includes(word)) {
-            return (
-              <span key={word_key} className="name-mask">
-                {"█".repeat(word.length)}
-              </span>
-            );
-          } else {
-            return (
-              <span key={word_key} className="name-plain">
-                {word}
-              </span>
-            );
-          }
-        })}
+        {tokens.map((token: string, index: number) =>
+          hidden.has(token.toLowerCase()) ? (
+            <span key={index} className="name-mask">
+              {"█".repeat(token.length)}
+            </span>
+          ) : (
+            <span key={index} className="name-plain">
+              {token}
+            </span>
+          )
+        )}
       </Box>
     </div>
   );

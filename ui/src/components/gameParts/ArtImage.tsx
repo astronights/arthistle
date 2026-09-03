@@ -7,13 +7,13 @@ interface ArtImageProps {
   activeStep: number;
 }
 const ArtImage = (props: ArtImageProps) => {
+  // Guard against a step with no matching artwork so navigating never crashes.
+  const art = props.artist.art?.[props.activeStep];
+
   return (
     <div className="art-image">
-      {props.artist._id ? (
-        <img
-          src={props.artist.art[props.activeStep].url}
-          alt={props.artist.art[props.activeStep]._id}
-        />
+      {props.artist._id && art?.url ? (
+        <img src={art.url} alt={`Clue ${props.activeStep + 1}`} />
       ) : (
         <Stack spacing={1}>
           <Skeleton variant="text" />

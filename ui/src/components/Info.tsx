@@ -91,7 +91,9 @@ const Info = () => {
         <p className="indent">
           The aim of the game is to decipher the complete name of an artist
           given five of their works. As you progress through each incorrect
-          guess, a new work is revealed. There is also an indicative marker of
+          guess, a new work is revealed. Works that have already been unlocked
+          can be revisited at any time with the markers below the image, or with
+          the left and right arrow keys. There is also an indicative marker of
           the number of characters and special characters (if any) in the
           artist's name. <br />
           For example, Henri de Toulouse-Lautrec would be reflected as{" "}
@@ -100,8 +102,9 @@ const Info = () => {
           <span className="mask">Lautrec</span>. As guesses are made, parts of
           the artist's name identified are revealed from the masked text. All
           guesses are validated case insensitive. The words entered are each
-          individually matched with each of the parts of the artist's name using
-          a fuzzy logic approach. Guesses are also displayed in a list of
+          individually matched with each of the parts of the artist's name,
+          ignoring accents and punctuation and allowing for the odd typo in
+          longer words. Guesses are also displayed in a list of
           attempts with different markers indicating the levels of success with
           each guess as below:
         </p>

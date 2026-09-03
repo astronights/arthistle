@@ -11,6 +11,7 @@ export const toClipboard = (
   let emojis = Array(gameSize).fill(symbols[0]);
   let c = 0;
   guesses.forEach((guess: string) => {
+    if (c >= gameSize) return;
     let res = isAnswer(guess.toLowerCase(), artist);
     let prevEmoji = symbols.findIndex((e) => e === emojis[c]);
     if (prevEmoji < res) {
@@ -23,7 +24,7 @@ export const toClipboard = (
   let firstFalse = completed.findIndex((c: boolean) => {
     return c === false;
   });
-  if (firstFalse >= 0 || firstFalse < gameSize) {
+  if (firstFalse >= 0 && firstFalse < gameSize) {
     emojis[firstFalse] = symbols[3];
   }
 

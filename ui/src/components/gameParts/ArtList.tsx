@@ -5,7 +5,8 @@ interface ArtListProps {
   size: number;
   curr: number;
   steps: boolean[];
-  update: Function;
+  unlocked: boolean[];
+  update: (step: number) => void;
 }
 const ArtList = (props: ArtListProps) => {
   return (
@@ -14,7 +15,12 @@ const ArtList = (props: ArtListProps) => {
         <Stepper nonLinear activeStep={props.curr}>
           {Array.from(Array(props.size).keys()).map((index) => (
             <Step key={index} completed={props.steps[index]}>
-              <StepButton color="inherit" onClick={props.update(index)} />
+              <StepButton
+                color="inherit"
+                aria-label={`Clue ${index + 1}`}
+                disabled={!props.unlocked[index]}
+                onClick={() => props.update(index)}
+              />
             </Step>
           ))}
         </Stepper>

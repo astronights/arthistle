@@ -1,4 +1,4 @@
-import { SetStateAction, useState } from "react";
+import { ChangeEvent, FormEvent, useRef, useState } from "react";
 import "../../assets/css/gameParts/ArtInput.sass";
 import { Button, TextField } from "@mui/material";
 
@@ -7,23 +7,37 @@ interface ArtInputProps {
   checkArtist: Function;
 }
 
+const maxLength = 64;
+
+// Artist names are letters plus the punctuation that shows up in them, e.g.
+// "M.C. Escher", "Georgia O'Keeffe" or "Henri de Toulouse-Lautrec".
+const disallowed = /[^\p{L}\p{M}\s'’.,-]/gu;
+
+// Drop characters a name can never contain and tidy up spacing, but never
+// reject the edit itself so that backspacing always works.
+const sanitize = (text: string) =>
+  text
+    .replace(disallowed, "")
+    .replace(/\s+/g, " ")
+    .replace(/^\s+/, "")
+    .slice(0, maxLength);
+
 const ArtInput = (props: ArtInputProps) => {
   const [gameValue, setGameValue] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  const isInputValid = (x: string) => {
-    return /^[A-Za-z\s]*$/.test(x);
+  const submit = (valueEvent: FormEvent) => {
+    valueEvent.preventDefault();
+    const attempt = gameValue.trim();
+    if (props.disabled || attempt === "") return;
+    props.checkArtist(attempt);
+    setGameValue("");
+    inputRef.current?.focus();
   };
+
   return (
     <div className="art-input">
-      <form
-        className="input-form"
-        onSubmit={(valueEvent) => {
-          valueEvent.preventDefault();
-          if (gameValue !== "")
-            props.checkArtist(gameValue.replace(/\s{2,}/g, " ").trim());
-          setGameValue("");
-        }}
-      >
+      <form className="input-form" onSubmit={submit}>
         <TextField
           value={gameValue}
           disabled={props.disabled}
@@ -34,15 +48,15 @@ const ArtInput = (props: ArtInputProps) => {
           label="Artist"
           name="artist"
           variant="outlined"
-          onChange={(e: { target: { value: SetStateAction<string> } }) => {
-            let text = e.target.value.toString();
-            let isError = !isInputValid(text) || text.trim().length === 0;
-            if (!isError) setGameValue(text);
+          autoComplete="off"
+          inputRef={inputRef}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            setGameValue(sanitize(e.target.value));
           }}
         />
         &nbsp;
         <Button
-          disabled={props.disabled}
+          disabled={props.disabled || gameValue.trim() === ""}
           className="form-button"
           type={"submit"}
           variant="contained"
