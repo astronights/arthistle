@@ -18,7 +18,8 @@
     max-width: 100%
     margin: 0.75em auto
     min-height: 2em
-    font-size: 1.5rem
+    // EB Garamond sets small, so the headline needs a little more size.
+    font-size: 1.7rem
     letter-spacing: 0.02em
 
 .art-name-inline
@@ -32,11 +33,13 @@
     gap: 0.16em
 
 // One tile per hidden letter, so the shape of the name is still readable.
+// Sized against the x-height rather than the em box, so a tile reads as a
+// letter next to the revealed words instead of towering over them.
 .name-tile
     display: inline-block
-    width: 0.6em
-    height: 1em
-    border-radius: 0.12em
+    width: 0.5em
+    height: 0.72em
+    border-radius: 0.1em
     background-color: colors.$yellow
 
 .name-plain

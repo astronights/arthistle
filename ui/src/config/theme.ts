@@ -16,7 +16,7 @@ export const palette = {
 
 const fontBody =
   "'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif";
-const fontDisplay = "'Arvo', Georgia, 'Times New Roman', serif";
+const fontDisplay = "'EB Garamond', Georgia, 'Times New Roman', serif";
 
 // Without this the MUI defaults leak through: the app bar renders its own grey
 // (#272727) against the page's teal, and the steppers and alerts come out in
