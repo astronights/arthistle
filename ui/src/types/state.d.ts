@@ -11,4 +11,7 @@ export type stateType = {
   guesses: {
     attempts: string[];
   };
+  // Milliseconds since the epoch, set on the first guess and on the last.
+  startedAt?: number | null;
+  finishedAt?: number | null;
 };

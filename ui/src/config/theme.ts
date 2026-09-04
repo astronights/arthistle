@@ -45,6 +45,13 @@ export const theme = createTheme({
   },
   shape: { borderRadius: 8 },
   components: {
+    // Dark MUI lightens raised surfaces with a white overlay, which puts
+    // dialogs on a colour that is not in the palette. The app is flat.
+    MuiPaper: {
+      styleOverrides: {
+        root: { backgroundImage: "none" },
+      },
+    },
     MuiAppBar: {
       styleOverrides: {
         root: {

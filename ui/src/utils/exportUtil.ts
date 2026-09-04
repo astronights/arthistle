@@ -1,12 +1,14 @@
 import { getNumber } from "./dateUtil";
 import { isAnswer } from "./matchUtil";
+import { formatDuration } from "./statsUtil";
 
 const symbols = ["⬛", "🟥", "🟨", "🟩"];
 export const toClipboard = (
   completed: boolean[],
   guesses: string[],
   artist: string,
-  gameSize: number
+  gameSize: number,
+  seconds: number | null = null
 ) => {
   let emojis = Array(gameSize).fill(symbols[0]);
   let c = 0;
@@ -31,6 +33,7 @@ export const toClipboard = (
   const stats = [
     `Arthistle #${getNumber()}`,
     emojis.join(""),
+    ...(seconds !== null ? [`Solved in ${formatDuration(seconds)}`] : []),
     "Arthistle: https://arthistle.netlify.app/",
   ];
   if (navigator.clipboard) {

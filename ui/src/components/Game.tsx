@@ -15,7 +15,8 @@ import { toClipboard } from "../utils/exportUtil";
 import { storeLocal } from "../utils/storageUtil";
 import { stateType } from "../types/state";
 import _ from "lodash";
-import { getLocalDate } from "../utils/dateUtil";
+import { getLocalDate, getNumber } from "../utils/dateUtil";
+import { recordResult } from "../utils/statsUtil";
 
 const daily_artist: artist = {
   _id: "",
@@ -43,6 +44,10 @@ const Game = () => {
   const [guesses, setGuesses] = useState<{ attempts: string[] }>({
     attempts: [],
   });
+  // The clock runs from the first guess to the last, so a tab left open
+  // overnight does not count as a very slow solve.
+  const [startedAt, setStartedAt] = useState<number | null>(null);
+  const [finishedAt, setFinishedAt] = useState<number | null>(null);
 
   const loadState = (state: stateType) => {
     setCompleted(state.completed);
@@ -52,6 +57,8 @@ const Game = () => {
     setWin(state.win);
     setDone(state.done);
     setGuesses(state.guesses);
+    setStartedAt(state.startedAt ?? null);
+    setFinishedAt(state.finishedAt ?? null);
   };
 
   // A clue is reachable once the guess for the previous one has been used up.
@@ -91,6 +98,7 @@ const Game = () => {
     setGuesses({
       attempts: [...guesses.attempts, attempt],
     });
+    if (startedAt === null) setStartedAt(Date.now());
   };
 
   useEffect(() => {
@@ -118,15 +126,31 @@ const Game = () => {
 
     let done_attempts = completed.every((elem) => elem === true);
     let found_answer = names.length === 0;
+    if (!found_answer && !done_attempts) return;
+
+    const ended = Date.now();
+    setFinishedAt(ended);
+    setDone(true);
     if (found_answer) {
       setWin(true);
-      setDone(true);
-    } else if (done_attempts) {
+    } else {
       setLoss(true);
-      setDone(true);
       setNames([""]);
     }
-  }, [guesses, completed, names, done, artist]);
+
+    // Keep the day's result for the stats view. Clues used is the one being
+    // shown when it ended, so a first-guess win counts as one.
+    const used = completed.filter(Boolean).length;
+    recordResult({
+      date: artist.date || getLocalDate(),
+      number: getNumber(),
+      artist: artist.name,
+      won: found_answer,
+      clues: Math.min(gameSize, found_answer ? used + 1 : gameSize),
+      guesses: guesses.attempts.length,
+      seconds: startedAt ? Math.round((ended - startedAt) / 1000) : null,
+    });
+  }, [guesses, completed, names, done, artist, startedAt]);
 
   // Keep the browser copy in step with the game, including which clue is open.
   useEffect(() => {
@@ -140,8 +164,21 @@ const Game = () => {
       win,
       done,
       guesses,
+      startedAt,
+      finishedAt,
     });
-  }, [completed, activeStep, artist, names, loss, win, done, guesses]);
+  }, [
+    completed,
+    activeStep,
+    artist,
+    names,
+    loss,
+    win,
+    done,
+    guesses,
+    startedAt,
+    finishedAt,
+  ]);
 
   // Arrow keys move between the clues, as long as the guess box is not in use.
   useEffect(() => {
@@ -159,12 +196,16 @@ const Game = () => {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [activeStep, handleStep]);
 
+  const elapsed =
+    startedAt && finishedAt ? Math.round((finishedAt - startedAt) / 1000) : null;
+
   const share = () => {
     return toClipboard(
       completed,
       guesses.attempts,
       artist.name.toLowerCase(),
-      gameSize
+      gameSize,
+      win ? elapsed : null
     );
   };
 
