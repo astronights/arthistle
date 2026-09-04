@@ -78,6 +78,13 @@ export const theme = createTheme({
         },
       },
     },
+    // The markers carry no text, so MUI's gap between the icon and its label
+    // is dead space that pushes every icon 4px left of its step's centre.
+    MuiStepLabel: {
+      styleOverrides: {
+        iconContainer: { paddingRight: 0 },
+      },
+    },
     MuiStepIcon: {
       styleOverrides: {
         root: {
