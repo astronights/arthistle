@@ -7,7 +7,7 @@ const NavBar = () => {
   return (
     <AppBar className="nav-bar" position="sticky">
       <Toolbar className="tool-bar">
-        <NavLink className="app-name nav-link" to="/game">
+        <NavLink className="app-name nav-link" to="/">
           <span className="text">ARTHISTLE #{getNumber()}</span>
         </NavLink>
         <div className="space-div"></div>

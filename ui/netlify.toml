@@ -5,3 +5,11 @@
   for = "/*.js"
     [headers.values]
     Content-Type = "application/javascript"
+
+# Single page app: every route is served by index.html so a refresh or a
+# shared link to /info does not 404. Existing files still win over this rule,
+# so the built assets are unaffected.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
