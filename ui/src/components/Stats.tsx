@@ -234,7 +234,8 @@ const Stats = (props: StatsProps) => {
             </figure>
 
             <details className="stats-table">
-              <summary>See the numbers</summary>
+              <summary>See the numbers ({shown.length} shown)</summary>
+              <div className="stats-scroll">
               <table>
                 <thead>
                   <tr>
@@ -257,6 +258,7 @@ const Stats = (props: StatsProps) => {
                   ))}
                 </tbody>
               </table>
+              </div>
             </details>
           </>
         )}

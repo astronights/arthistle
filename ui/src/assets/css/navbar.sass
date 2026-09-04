@@ -14,6 +14,9 @@
     margin: auto
     display: flex
     justify-content: space-evenly
+    // Without this the Info and Stats tap targets abut, and a tap on the
+    // boundary is a coin flip between them.
+    gap: 0.75em
     @media screen and (max-width: medium.$tablet)
         width: 90%
     @media screen and (min-width: medium.$tablet)

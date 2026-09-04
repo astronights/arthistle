@@ -118,10 +118,22 @@
     cursor: pointer
     opacity: 0.8
 
+  // The window is capped, but thirty rows is still a long way to scroll past
+  // inside a dialog, so the rows scroll within their own box.
+  .stats-scroll
+    max-height: 14em
+    overflow-y: auto
+    margin-top: 0.5em
+    border: 1px solid colors.$line
+    border-radius: 0.3em
+
   table
     width: 100%
     border-collapse: collapse
-    margin-top: 0.5em
+
+  // No sticky header here: over a scrolling table it paints unreliably, with
+  // the rows behind showing through it. Three rows are visible at a time and
+  // the columns speak for themselves.
 
   th, td
     text-align: left
