@@ -1,0 +1,16 @@
+@use "colors" as colors
+
+// Shared by the artist's name and the work titles: one tile per hidden letter,
+// so the shape of the word shows without the letters. The secret text is never
+// put in the DOM.
+.mask-word
+    display: inline-flex
+    align-items: center
+    gap: 0.16em
+
+.mask-tile
+    display: inline-block
+    width: 0.5em
+    height: 0.72em
+    border-radius: 0.1em
+    background-color: colors.$yellow

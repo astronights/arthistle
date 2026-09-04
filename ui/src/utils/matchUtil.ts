@@ -75,6 +75,21 @@ export const fuzzyMatch = (attempt: string, artist: string): string[] => {
   return [...matched];
 };
 
+// A work's title can contain the artist's name - "Irises in Monet's Garden" -
+// which would hand over the answer, so any word matching a part of the name
+// that is still hidden comes back marked for masking.
+export const maskWords = (
+  text: string,
+  hidden: string[]
+): { text: string; masked: boolean }[] => {
+  const secret = new Set(hidden.map(normalize).filter(Boolean));
+
+  return text
+    .split(/([^\p{L}\p{N}]+)/u)
+    .filter(Boolean)
+    .map((token) => ({ text: token, masked: secret.has(normalize(token)) }));
+};
+
 export const isAnswer = (attempt: string, artist: string): number => {
   const artistParts = new Set(nameParts(artist.toLowerCase()));
   const matched = fuzzyMatch(attempt, artist).length;

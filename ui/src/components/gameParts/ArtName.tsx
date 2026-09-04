@@ -22,11 +22,11 @@ const ArtName = (props: ArtNameProps) => {
         hidden.has(token.toLowerCase()) ? (
           <span
             key={index}
-            className="name-mask"
+            className="mask-word"
             aria-label={`Hidden word, ${token.length} letters`}
           >
             {Array.from(token).map((_, tile) => (
-              <span key={tile} className="name-tile" aria-hidden="true" />
+              <span key={tile} className="mask-tile" aria-hidden="true" />
             ))}
           </span>
         ) : (

@@ -187,7 +187,7 @@ const Game = () => {
 
       <div className="content">
         <div className="image-stuff">
-          <ArtImage artist={artist} activeStep={activeStep} />
+          <ArtImage artist={artist} activeStep={activeStep} names={names} />
           <ArtList
             size={gameSize}
             steps={completed}

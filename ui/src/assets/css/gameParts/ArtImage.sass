@@ -1,5 +1,11 @@
 @use "../colors" as colors
 
+.art-figure
+    display: flex
+    flex-direction: column
+    align-items: center
+    margin: 0
+
 // A fixed square frame: the artwork is contained inside it whatever its shape,
 // so the rest of the game does not move when switching between clues. The mat
 // around it keeps a wide or tall painting looking mounted rather than cropped.
@@ -25,3 +31,25 @@
         max-height: 100%
         object-fit: contain
         box-shadow: 0 0.15em 0.6em rgba(0, 0, 0, 0.5)
+
+// The gallery label. Titles range from one word to a full sentence, so the
+// caption is clamped to two lines and always occupies them - otherwise the
+// clue markers below would jump every time the work changed.
+.art-caption
+    box-sizing: border-box
+    width: min(var(--game-column), 55vh)
+    max-width: 100%
+    margin: 0
+    padding: 0 0.5em
+    text-align: center
+    font-family: var(--font-display)
+    font-style: italic
+    font-size: 0.95rem
+    line-height: 1.4
+    min-height: 2.8em
+    color: colors.$text
+    opacity: 0.85
+    display: -webkit-box
+    -webkit-line-clamp: 2
+    -webkit-box-orient: vertical
+    overflow: hidden
