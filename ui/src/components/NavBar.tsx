@@ -10,7 +10,7 @@ const NavBar = () => {
 
   return (
     <AppBar className="nav-bar" position="sticky">
-      <Toolbar className="tool-bar">
+      <Toolbar className="tool-bar" disableGutters>
         <NavLink className="app-name nav-link" to="/">
           <span className="text">ARTHISTLE #{getNumber()}</span>
         </NavLink>
