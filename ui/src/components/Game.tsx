@@ -108,7 +108,16 @@ const Game = () => {
           window.localStorage.getItem("arthistle") || "{}"
         );
         setArtist(data);
-        if (!_.isEmpty(prevState) && prevState.artist?._id === data._id) {
+        // Match the saved game on the puzzle's date, not just its artist.
+        // With one artist per day and a hundred of them, every artist comes
+        // round again every hundred days; keying on the artist alone restored
+        // that old finished game and made the day look already played.
+        const samePuzzle =
+          !_.isEmpty(prevState) &&
+          prevState.artist?.date === data.date &&
+          prevState.artist?._id === data._id;
+
+        if (samePuzzle) {
           loadState(prevState);
         } else {
           setNames(nameParts(data.name));
